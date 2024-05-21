@@ -16,7 +16,7 @@
         if(isset($_GET["vista_solicitada"])) {
             echo "vista cargada correctamente!";
         } else {
-            echo "vista cargada erroneamente!"
+            echo "vista cargada erroneamente!";
         }
     ?>
     </body>
