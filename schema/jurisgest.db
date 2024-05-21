@@ -1,0 +1,72 @@
+-- Crear la base de datos
+CREATE DATABASE app;
+
+-- Seleccionar la base de datos
+USE app;
+
+-- Crear las tablas según el diagrama
+CREATE TABLE tbl_junt (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nJunt VARCHAR(255)
+);
+
+CREATE TABLE tbl_per (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nPer VARCHAR(255)
+);
+
+CREATE TABLE tbl_usr (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    aco VARCHAR(255),
+    nom VARCHAR(255),
+    ape VARCHAR(255),
+    perf INT,
+    corr VARCHAR(255),
+    fUlt DATE,
+    FOREIGN KEY (perf) REFERENCES tbl_per(id)
+);
+
+CREATE TABLE tbl_cli (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255),
+    aPat VARCHAR(255),
+    aMat VARCHAR(255),
+    calle VARCHAR(255),
+    nInt VARCHAR(255),
+    nExt VARCHAR(255),
+    col VARCHAR(255),
+    cp VARCHAR(255),
+    ciud VARCHAR(255),
+    edo VARCHAR(255),
+    tel1 VARCHAR(255),
+    tel2 VARCHAR(255),
+    cel VARCHAR(255),
+    rReg DATE
+);
+
+CREATE TABLE tbl_exp (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fInt DATE,
+    nom VARCHAR(255),
+    ape VARCHAR(255),
+    emp VARCHAR(255),
+    jun INT,
+    varch VARCHAR(255),
+    sta VARCHAR(255),
+    cliente_id INT,
+    FOREIGN KEY (jun) REFERENCES tbl_junt(id),
+    FOREIGN KEY (cliente_id) REFERENCES tbl_cli(id)
+);
+
+CREATE TABLE tbl_aud (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fAud DATE,
+    jun INT,
+    cli INT,
+    exp INT,
+    nAud VARCHAR(255),
+    com VARCHAR(255),
+    FOREIGN KEY (jun) REFERENCES tbl_junt(id),
+    FOREIGN KEY (cli) REFERENCES tbl_cli(id),
+    FOREIGN KEY (exp) REFERENCES tbl_exp(id)
+);

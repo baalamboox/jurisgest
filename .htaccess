@@ -1,0 +1,6 @@
+# Creación de rutas amigables.
+RewriteEngine on
+
+# Definición de la regla para vistas amigables.
+# Se usa la variable vista_solicitada para almacenar la URL.
+RewriteRule ^([a-zA-Z0-9/_-]+)$ index.php?vista_solicitada=$1
