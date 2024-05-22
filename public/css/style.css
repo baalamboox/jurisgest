@@ -1,34 +1,100 @@
-.bg-general-login {
-    background-color: rgba(25, 21, 20, 0.75);
+:root {
+    --gold-light: #d5aa6d;
+    --gold-dark: #c59d64;
+    --black-special: #0b0505;
+    --gray-special: #191514;
+    --black-special-alfa: rgba(11, 5, 5, 0.75);
+    --gray-special-alfa: rgba(25, 21, 20, 0.75);
+}
+
+.btn-gold-light {
+    background-color: var(--gold-light);
+}
+
+.btn-gold-dark {
+    background-color: var(--gold-dark);
+}
+
+.bg-black-special {
+    background-color: var(--black-special);
+}
+
+.bg-gray-special {
+    background-color: var(--gray-special);
+}
+
+.bg-black-special-blur {
+    background-color: var(--black-special-alfa);
     backdrop-filter: blur(10px);
 }
 
-.bg-login {
-    background-color: #0b0505;
-}
-
-.bg-login-col-info {
-    background-color: #191514;
-}
-
-.bg-hr {
-    border-bottom: solid 1px #d5aa6d;
-}
-
-.bg-login-col-form {
-    background-color: rgba(11, 5, 5, 0.5);
+.bg-gray-special-blur {
+    background-color: var(--gray-special-alfa);
     backdrop-filter: blur(10px);
 }
 
-.btn-gold {
-    background: linear-gradient(80deg, #d5aa6d, #d5aa6d);
+.text-gold-light {
+    color: var(--gold-light);
 }
 
-.gold-border-input:focus {
+.text-gold-dark {
+    color: var(--gold-dark);
+}
+
+.border-bottom-gold-light {
+    border-bottom: solid 1px var(--gold-light);
+}
+
+.border-bottom-gold-dark {
+    border-bottom: solid 1px var(--gold-dark);
+}
+
+.bg-img-header {
+    background-image: url("../images/fondos/fondo-encabezado.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hr-header {
+    height: 5px;
+    background-color: var(--black-special);
+}
+
+.nav-item-bg-gold-hover:hover {
+    background-color: var(--gold-dark);
+}
+
+.nav-item-bg-white-hover:hover {
+    background-color: white;
+    color: var(--gold-light);
+}
+
+.btn-gold-light:focus {
     box-shadow: none;
-    border: solid 2px #d5aa6d;
+}
+
+.btn-gold-dark:focus {
+    box-shadow: none;
 }
 
 input[type="checkbox"]:checked {
-    accent-color: #d5aa6d;
+    accent-color: var(--gold-light);
 }
+
+input[type="text"]:focus {
+    box-shadow: none;
+    border: solid 2px var(--gold-light);
+}
+
+input[type="email"]:focus {
+    box-shadow: none;
+    border: solid 2px var(--gold-light);
+}
+
+input[type="password"]:focus {
+    box-shadow: none;
+    border: solid 2px var(--gold-light);
+}
+

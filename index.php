@@ -19,6 +19,9 @@
                 case "inicio-sesion":
                     include_once "view/autenticacion/iniciar-sesion.php";
                     break;
+                case "plantilla":
+                    include_once "view/plantillas/plantilla.php";
+                    break;
                 default:
                     # code...
                     break;

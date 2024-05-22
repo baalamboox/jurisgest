@@ -1,8 +1,8 @@
-<div class="container-fluid d-flex vh-100 justify-content-center align-items-center bg-general-login">
-    <div class="row rounded-lg w-75 overflow-hidden shadow-lg">
+<div class="container-fluid d-flex vh-100 justify-content-center align-items-center bg-gray-special-blur">
+    <div class="row rounded-lg w-75 overflow-hidden shadow-lg animate__animated animate__zoomIn">
         <div class="row w-100 mx-0">
-            <div class="col-md-7 p-3 bg-login-col-info">
-                <h5 class="text-white bg-hr">Inicio de sesión</h5>
+            <div class="col-md-7 p-3 bg-gray-special">
+                <h5 class="text-white border-bottom-gold-light">Inicio de sesión</h5>
                 <div class="d-none d-sm-block">
                     <div class="mx-5 py-5">
                         <img src="public/images/logotipos/gca-blanco.png" class="img-fluid">
@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 p-5 bg-login-col-form">
+            <div class="col-md-5 p-5 bg-black-special-blur">
                 <form action="" method="post" class="text-white">
                     <div class="form-group">
                         <label for=""><i class="fas fa-at mr-1"></i>Correo electrónico</label>
@@ -26,11 +26,11 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Mostrar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-gold btn-block btn-sm mt-4"><i class="fas fa-sign-in-alt mr-1"></i>Ingresar</button>
+                    <button type="submit" class="btn btn-gold-light btn-block btn-sm mt-4"><i class="fas fa-sign-in-alt mr-1"></i>Ingresar</button>
                 </form>
             </div>
         </div>
-        <div class="row w-100 mx-0 py-3 bg-login">
+        <div class="row w-100 mx-0 py-3 bg-black-special">
             <div class="d-flex justify-content-end w-100 px-2">
                 <small class="text-white">¿Olvidaste tu contraseña?</small>
             </div>
