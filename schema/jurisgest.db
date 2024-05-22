@@ -1,8 +1,8 @@
 -- Crear la base de datos
-CREATE DATABASE app;
+CREATE DATABASE jurisgest;
 
 -- Seleccionar la base de datos
-USE app;
+USE jurisgest;
 
 -- Crear las tablas según el diagrama
 CREATE TABLE tbl_junt (

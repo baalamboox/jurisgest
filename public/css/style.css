@@ -1,0 +1,34 @@
+.bg-general-login {
+    background-color: rgba(25, 21, 20, 0.75);
+    backdrop-filter: blur(10px);
+}
+
+.bg-login {
+    background-color: #0b0505;
+}
+
+.bg-login-col-info {
+    background-color: #191514;
+}
+
+.bg-hr {
+    border-bottom: solid 1px #d5aa6d;
+}
+
+.bg-login-col-form {
+    background-color: rgba(11, 5, 5, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.btn-gold {
+    background: linear-gradient(80deg, #d5aa6d, #d5aa6d);
+}
+
+.gold-border-input:focus {
+    box-shadow: none;
+    border: solid 2px #d5aa6d;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: #d5aa6d;
+}
