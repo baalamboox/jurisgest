@@ -17,11 +17,13 @@ CREATE TABLE tbl_per (
 
 CREATE TABLE tbl_usr (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    usr VARCHAR(225),
     aco VARCHAR(255),
     nom VARCHAR(255),
     ape VARCHAR(255),
     perf INT,
     corr VARCHAR(255),
+    fReg DATE,
     fUlt DATE,
     FOREIGN KEY (perf) REFERENCES tbl_per(id)
 );
@@ -70,3 +72,12 @@ CREATE TABLE tbl_aud (
     FOREIGN KEY (cli) REFERENCES tbl_cli(id),
     FOREIGN KEY (exp) REFERENCES tbl_exp(id)
 );
+
+-- Inserta los tres roles de usuarios
+INSERT INTO tbl_per(nPer) VALUES ("super_administrador");
+INSERT INTO tbl_per(nPer) VALUES ("administrador");
+INSERT INTO tbl_per(nPer) VALUES ("usuario");
+
+-- Inserta super administrador por defecto
+
+INSERT INTO tbl_usr(usr, aco, nom, ape, perf, corr, fReg, fUlt) VALUES ("TzRooDAI", "7c222fb2927d828af22f592134e8932480637c0d", "gerardo", "cuellar", 1, "gerardo.cuellar@gmail.com", "2024-05-23", "2024-05-23");
