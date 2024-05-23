@@ -3,32 +3,62 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <!-- Se obtiene la vista solicitada y se muestra como título de la pestaña. -->
-        <title><?php echo ucfirst($_GET["vista_solicitada"]); ?></title>
+        <title>
+            <?php
+                if(isset($_GET["vista_solicitada"])) {
+                    switch ($_GET["vista_solicitada"]) {
+                        case "inicio-sesion":
+                            echo "Inicio de sesión";
+                            break;
+                        case "super-administrador":
+                            echo "Super administrador";
+                            break;
+                        case "administrador":
+                            echo "Administrador";
+                            break;
+                        case "usuario":
+                            echo "Usuario";
+                            break;
+                    }
+                } else {
+                    echo "Inicio de sesión";
+                }
+            ?>
+        </title>
         <?php
+
             // Se mandan a llamar las configuraciones necesarias así como dependencias.
             require_once "config/configuracion.php";
             require_once "config/dependencias.php";
         ?>
     </head>
     <body>
-    <?php
-        // Verificación de las rutas amigables.
-        if(isset($_GET["vista_solicitada"])) {
-            switch ($_GET["vista_solicitada"]) {
-                case "inicio-sesion":
-                    include_once "view/autenticacion/iniciar-sesion.php";
-                    break;
-                case "plantilla":
-                    include_once "view/plantillas/plantilla.php";
-                    break;
-                default:
-                    # code...
-                    break;
+        <?php
+
+            // Verificación de las rutas amigables.
+            if(isset($_GET["vista_solicitada"])) {
+                switch ($_GET["vista_solicitada"]) {
+                    case "inicio-sesion":
+                        require_once "view/autenticacion/iniciar-sesion.php";
+                        break;
+                    case "super-administrador":
+                        require_once "view/super-administrador/principal.php";
+                        break;
+                    case "administrador":
+                        require_once "view/administrador/principal.php";
+                        break;
+                    case "usuario":
+                        require_once "view/usuario/principal.php";
+                        break;
+                    default:
+                        echo "No se econtro vista";
+                        break;
+                }
+            } else {
+                include_once "view/autenticacion/iniciar-sesion.php";
             }
-        } else {
-            include_once "view/autenticacion/iniciar-sesion.php";
-        }
-    ?>
+        ?>
     </body>
 </html>

@@ -62,6 +62,10 @@
     background-color: var(--black-special);
 }
 
+.mvh-100 {
+    min-height: 100vh;
+}
+
 .nav-item-bg-gold-hover:hover {
     background-color: var(--gold-dark);
 }
@@ -97,4 +101,3 @@ input[type="password"]:focus {
     box-shadow: none;
     border: solid 2px var(--gold-light);
 }
-
