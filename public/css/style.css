@@ -101,3 +101,50 @@ input[type="password"]:focus {
     box-shadow: none;
     border: solid 2px var(--gold-light);
 }
+
+/* *Esto son los estilo de la parte de inicio*/
+
+
+
+/* Se utilo para cdejar un espacio entre la imagen y el sig textto*/
+.espacio_padding {
+    padding: 7% 0;
+}
+
+.espacio_padding2{
+    padding: 10px 0;
+}
+
+/*
+El elementos h3 dentro de un contenedor con la clase custom_heading-container de la siguiente manera:
+    Transforma el texto a mayúsculas.
+    Usa posicionamiento relativo para el elemento.
+*/
+.custom_heading-container h3 {
+    text-transform: uppercase;
+    position: relative;
+}
+
+/*
+    *Se añade una barra --gold-dark horizontal con bordes redondeados debajo de los elementos h3 dentro de un contenedor
+    *Barra decorativa: Se añade una barra roja con bordes redondeados debajo de los h3, centrada horizontalmente.
+*/
+.custom_heading-container h3::before {
+    content: " ";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    width: 50px;
+    height: 7px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    background-color:var(--gold-dark);
+    border-radius: 15px;
+}
+
+.letra{
+    font-size: 20px;
+    text-align: justify-center;
+}
+
+
