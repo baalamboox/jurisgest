@@ -1,54 +1,67 @@
+/* Variables para colores. */
 :root {
     --gold-light: #d5aa6d;
     --gold-dark: #c59d64;
     --black-special: #0b0505;
     --gray-special: #191514;
+    --gray-space: #252525;
     --black-special-alfa: rgba(11, 5, 5, 0.75);
     --gray-special-alfa: rgba(25, 21, 20, 0.75);
 }
 
+/* Regla para botón dorado claro.*/
 .btn-gold-light {
     background-color: var(--gold-light);
 }
 
+/* Regla para botón dorado obscuro.*/
 .btn-gold-dark {
     background-color: var(--gold-dark);
 }
 
+/* Regla para fondo negro especial. */
 .bg-black-special {
     background-color: var(--black-special);
 }
 
+/* Regla para fondo gris especial. */
 .bg-gray-special {
     background-color: var(--gray-special);
 }
 
+/* Reglas para fondo con efecto defuminado negro especial. */
 .bg-black-special-blur {
     background-color: var(--black-special-alfa);
     backdrop-filter: blur(10px);
 }
 
+/* Reglas para fondo con efecto defuminado gris especial. */
 .bg-gray-special-blur {
     background-color: var(--gray-special-alfa);
     backdrop-filter: blur(10px);
 }
 
+/* Regla para texto de color dorado claro. */
 .text-gold-light {
     color: var(--gold-light);
 }
 
+/* Regla para texto de color dorado obscuro. */
 .text-gold-dark {
     color: var(--gold-dark);
 }
 
+/* Regla para borde inferior de color dorado claro. */
 .border-bottom-gold-light {
     border-bottom: solid 1px var(--gold-light);
 }
 
+/* Regla para borde inferior de color dorado obscuro. */
 .border-bottom-gold-dark {
     border-bottom: solid 1px var(--gold-dark);
 }
 
+/* Reglas para el fondo del encabezado principal de página. */
 .bg-img-header {
     background-image: url("../images/fondos/fondo-encabezado.jpg");
     background-size: cover;
@@ -57,57 +70,150 @@
     background-attachment: fixed;
 }
 
+/* Reglas para la línea horizontal que esta debajo del encabezado. */
 .hr-header {
     height: 5px;
     background-color: var(--black-special);
 }
 
+/* Regla para que los elementos que la usen tenga un alto mínimo. */
 .mvh-100 {
     min-height: 100vh;
 }
 
-.nav-item-bg-gold-hover:hover {
+/* (SweetAlert 2) Cambia el color del botón cerrar. */
+.swal2-close.custom-button {
+    color: white !important;
+}
+
+/* (SweetAlert 2) Cambia el color del borde del ícono de error. */
+.swal2-icon.swal2-error {
+    border-color: var(--gold-dark); 
+}
+
+/* (SweetAlert 2) Cambia el color de la 'X'. */
+.swal2-icon.swal2-error [class^="swal2-x-mark-line"] {
     background-color: var(--gold-dark);
 }
 
-.nav-item-bg-white-hover:hover {
-    background-color: white;
-    color: var(--gold-light);
+/* (SweetAlert 2) Cambia el color del ícono de advertencia predeterminado */
+.swal2-icon.swal2-warning {
+    border-color: var(--gold-dark);
 }
 
+/* (SweetAlert 2) Cambia el color del signo '!'. */
+.swal2-icon.swal2-warning .swal2-icon-content {
+    color: var(--gold-dark);
+}
+
+/* (SweetAlert 2) Cambia el color del botón de confirmación, */
+.swal2-confirm {
+    background-color: var(--gold-light) !important; /* Cambia el color de fondo */
+    color: var(--black-special) !important; /* Cambia el color del texto */
+}
+
+.swal2-cancel {
+    background-color: var(--gray-space) !important;
+}
+
+/* (Bootstrap 4) Sobreescritura de la regla para los botones de la barra de navegación. */
+.nav-link {
+    color: white !important;
+}
+
+/* Regla personalizada para margenes superiores de 12 pixeles. */
+.dropdown-mt {
+    margin-top: 12px;
+}
+
+/* (Bootstrap 4) Sobreescritura del botón de inicio principal. */
+.navbar-brand {
+    font-size: 18px;
+    color: var(--gold-light) !important;
+}
+
+/* (Bootstrap 4) Sobre escritura del efecto hover de los botones de la barra de navegación. */
+.nav-link:hover {
+    color: var(--black-special) !important;
+}
+
+/* (SweetAlert 2) Cambiar el color al pasar el cursor. */
+.swal2-confirm:hover {
+    background-color: var(--gold-light) !important;
+}
+
+/* (SweetAlert 2) Cambiar el color al pasar el cursor. */
+.swal2-cancel:hover {
+    background-color: var(--gray-space) !important;
+}
+
+/* (SweetAlert 2) Quita la sombra por defecto del botón cancelar cuando esta enfocado. */
+.swal2-cancel:focus {
+    box-shadow: none !important;
+}
+
+/* (SweetAlert 2) Quita la sombra por defecto del botón confirmar cuando esta enfocado. */
+.swal2-confirm:focus {
+    box-shadow: none !important;
+}
+
+/* (SweetAlert 2) Quita la sombra por defecto del botón cerrar cuando esta enfocado. */
+.swal2-close.custom-button:focus {
+    box-shadow: none !important;
+}
+
+.nav-item-bg-gold-hover:hover {
+    background-color: var(--gold-dark);
+    color: var(--black-special) !important;
+}
+
+/* Regla para quitar el borde que da al enfocar el botón. */
 .btn-gold-light:focus {
     box-shadow: none;
 }
 
+/* Regla para quitar el borde que da al enfocar el botón. */
 .btn-gold-dark:focus {
     box-shadow: none;
 }
 
+/* Reglas para cambiar el color de fondo de los checkbox. */
 input[type="checkbox"]:checked {
     accent-color: var(--gold-light);
 }
 
+/* Reglas para cambiar el borde y sombra de los inputs de tipo texto. */
 input[type="text"]:focus {
     box-shadow: none;
     border: solid 2px var(--gold-light);
 }
 
+/* Reglas para cambiar el borde y sombra de los inputs de tipo correo electrónico. */
 input[type="email"]:focus {
     box-shadow: none;
     border: solid 2px var(--gold-light);
 }
 
+/* Reglas para cambiar el borde y sombra de los inputs de tipo contraseña. */
 input[type="password"]:focus {
     box-shadow: none;
     border: solid 2px var(--gold-light);
 }
 
+/* (Bootstrap 4) Sobreescritura del efecto hover para el botón de inicio principal. */
+.navbar-brand:hover {
+    background-color: white !important;
+}
 
-/* *Esto son los estilo de la parte de inicio*/
+/* Regla para efecto hover del botón dorado claro. */
+.btn-gold:hover {
+    color: white;
+    background-color: var(--gold-dark);
+}
 
+/* Estos son los estilos de la parte de inicio. */
 
-
-/* Se utilo para cdejar un espacio entre la imagen y el sig textto*/
+/* Se utilizo para dejar un espacio entre la imagen y el siguiente texto. */
 .espacio_padding {
     padding: 7% 0;
 }
@@ -117,9 +223,9 @@ input[type="password"]:focus {
 }
 
 /*
-El elementos h3 dentro de un contenedor con la clase custom_heading-container de la siguiente manera:
-    Transforma el texto a mayúsculas.
-    Usa posicionamiento relativo para el elemento.
+    * El elementos h3 dentro de un contenedor con la clase custom_heading-container de la siguiente manera:
+    * Transforma el texto a mayúsculas.
+    * Usa posicionamiento relativo para el elemento.
 */
 .custom_heading-container h3 {
     text-transform: uppercase;
@@ -127,8 +233,8 @@ El elementos h3 dentro de un contenedor con la clase custom_heading-container de
 }
 
 /*
-    *Se añade una barra --gold-dark horizontal con bordes redondeados debajo de los elementos h3 dentro de un contenedor
-    *Barra decorativa: Se añade una barra roja con bordes redondeados debajo de los h3, centrada horizontalmente.
+    * Se añade una barra --gold-dark horizontal con bordes redondeados debajo de los elementos h3 dentro de un contenedor.
+    * Barra decorativa: Se añade una barra roja con bordes redondeados debajo de los h3, centrada horizontalmente.
 */
 .custom_heading-container h3::before {
     content: " ";
@@ -138,14 +244,12 @@ El elementos h3 dentro de un contenedor con la clase custom_heading-container de
     width: 50px;
     height: 7px;
     -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     background-color:var(--gold-dark);
     border-radius: 15px;
 }
 
-.letra{
+.letra {
     font-size: 20px;
     text-align: justify-center;
 }
-
-

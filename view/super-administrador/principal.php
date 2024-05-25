@@ -1,3 +1,11 @@
+<?php
+    // Se usa el método siguiente para poder hacer uso de las varables de sesión.
+    session_start();
+
+    // Verifica si hay un usuario con sesión activa así como su perfil.
+    if(isset($_SESSION["usuario"])) {
+        if($_SESSION["perfil"] == 1) {
+?>
 <div class="d-flex flex-column mvh-100">
 
     <!-- Se manda a llamar el encabezado -->
@@ -12,6 +20,16 @@
     <?php require_once "view/plantillas/pie-pagina.php"; ?>
 </div>
 
-<!-- se manda a traer los script -->
-
+<!-- Se implementa el script para funcionalidad de la vista principal. -->
 <script src="manager/super-administrador/principal.js" defer="true"></script>
+<?php
+        } else {
+            header("location:" . $_SESSION["ruta"]);
+            exit();
+        }
+    } else {
+        header("location:inicio-sesion");
+        exit();
+    }
+    
+?>
