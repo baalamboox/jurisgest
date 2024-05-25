@@ -1,3 +1,11 @@
+<?php
+
+    // Se usa el método siguiente para poder hacer uso de las varables de sesión.
+    session_start();
+
+    // Compara si no hay sesión activa para poder iniciar sesión e ir a su sección.
+    if(!isset($_SESSION["usuario"])) {
+?>
 <div class="container-fluid d-flex vh-100 justify-content-center align-items-center bg-gray-special-blur">
 
     <!-- Aquí empieza contenedor del inicio de sesión. -->
@@ -21,20 +29,20 @@
 
             <!-- Aquí empieza la columna que contiene el formulario de inicio de sesión. -->
             <div class="col-md-5 p-5 bg-black-special-blur">
-                <form action="" method="post" class="text-white">
+                <form class="text-white">
                     <div class="form-group">
-                        <label for=""><i class="fas fa-user-circle mr-1"></i>Usuario</label>
-                        <input type="email" name="" id="" class="form-control form-control-sm gold-border-input" placeholder="Ingresa tu usuario" />
+                        <label for="usuario"><i class="fas fa-user-circle mr-1"></i>Usuario</label>
+                        <input type="email" name="usuario" id="usuario" class="form-control form-control-sm gold-border-input" placeholder="Ingresa tu usuario" />
                     </div>
                     <div class="form-group">
-                        <label for=""><i class="fas fa-lock mr-1"></i>Contraseña</label>
-                        <input type="password" name="" id="" class="form-control form-control-sm gold-border-input" placeholder="Ingresa tu contraseña" />
+                        <label for="contra"><i class="fas fa-lock mr-1"></i>Contraseña</label>
+                        <input type="password" name="contra" id="contra" class="form-control form-control-sm gold-border-input" placeholder="Ingresa tu contraseña" />
                     </div>
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Mostrar contraseña</label>
+                        <input type="checkbox" class="form-check-input" id="mostrarOcultarContra">
+                        <label class="form-check-label" for="mostrarOcultarContra">Mostrar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-gold-light btn-block btn-sm mt-4"><i class="fas fa-sign-in-alt mr-1"></i>Ingresar</button>
+                    <span class="btn btn-gold-light btn-block btn-sm mt-4" id="botonIniciarSesion"><i class="fas fa-sign-in-alt mr-1"></i>Ingresar</span>
                 </form>
             </div>
         </div>
@@ -49,3 +57,12 @@
         </div>
     </div>
 </div>
+
+<!-- Implementación del script para el manejo de inicio de sesión. -->
+<script src="manager/autenticacion/iniciar-sesion.js" defer="true"></script>
+<?php
+    } else {
+        header("location:" . $_SESSION["ruta"]);
+        exit();
+    }
+?>

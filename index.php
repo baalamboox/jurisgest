@@ -57,7 +57,8 @@
                         break;
                 }
             } else {
-                include_once "view/autenticacion/iniciar-sesion.php";
+                header("location:inicio-sesion");
+                exit();
             }
         ?>
     </body>
