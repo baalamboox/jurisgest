@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col p-0">
                 <nav class="navbar navbar-expand-lg navbar-light p-0 bg-black-special-blur">
-                    <a class="navbar-brand mr-2 btn-sm ml-2" href="#"><i class="fas fa-home mr-1"></i>Inicio</a>
+                    <span class="nav-link rounded text-gold-light px-4 nav-item-bg-white-hover" id="botonInicio"><i class="fas fa-home mr-1"></i>Inicio</span>
                     <span class="navbar-toggler text-white" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </span>
@@ -31,8 +31,8 @@
                         <!-- Aquí empieza la barra de navegación para dispositivos de escritorio. -->
                         <div class="w-100 d-none d-lg-flex">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item btn-sm nav-item-bg-gold-hover rounded">
-                                    <a class="nav-link" href="#"><i class="fas fa-address-card mr-2"></i>Contactanos</a>
+                                <li class="nav-item nav-item-bg-gold-hover rounded">
+                                    <a class="nav-link text-white" id="botonContactanos"><i class="fas fa-address-card mr-2"></i>Contactanos</a>
                                 </li>
                                 <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) {?>
                                 <li class="nav-item btn-sm nav-item-bg-gold-hover rounded">
