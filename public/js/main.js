@@ -10,7 +10,7 @@ window.onload = function() {
         body.style.backgroundAttachment = "fixed";
     }
 
-    // Inicialización del uso de Tooltips (Bootstrap).
+    // Inicialización del uso de Tooltips (Bootstrap 4).
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     })
