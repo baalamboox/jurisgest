@@ -43,7 +43,7 @@
 
 /* Regla para texto de color dorado claro. */
 .text-gold-light {
-    color: var(--gold-light);
+    color: var(--gold-light) !important;
 }
 
 /* Regla para texto de color dorado obscuro. */
@@ -130,6 +130,11 @@
 .navbar-brand {
     font-size: 18px;
     color: var(--gold-light) !important;
+}
+
+/* Regla para mantener el contenedor de vistas siempre primero. */
+.z-index-1 {
+    z-index: -1 !important;
 }
 
 /* (Bootstrap 4) Sobre escritura del efecto hover de los botones de la barra de navegación. */

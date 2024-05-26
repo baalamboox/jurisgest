@@ -22,7 +22,11 @@
         <div class="row">
             <div class="col p-0">
                 <nav class="navbar navbar-expand-lg navbar-light p-0 bg-black-special-blur">
-                    <span class="nav-link rounded text-gold-light px-4 nav-item-bg-white-hover" id="botonInicio"><i class="fas fa-home mr-1"></i>Inicio</span>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item btn-sm">
+                            <span class="nav-link rounded nav-item-bg-gold-hover boton-inicio"><i class="fas fa-home mr-1"></i>Inicio</span>
+                        </li>
+                    </ul>
                     <span class="navbar-toggler text-white" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </span>
@@ -31,26 +35,26 @@
                         <!-- Aquí empieza la barra de navegación para dispositivos de escritorio. -->
                         <div class="w-100 d-none d-lg-flex">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item nav-item-bg-gold-hover rounded">
-                                    <a class="nav-link text-white" id="botonContactanos"><i class="fas fa-address-card mr-2"></i>Contactanos</a>
+                                <li class="nav-item btn-sm">
+                                    <span class="nav-link nav-item-bg-gold-hover rounded boton-contactanos"><i class="fas fa-address-card mr-2"></i>Contactanos</span>
                                 </li>
                                 <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) {?>
-                                <li class="nav-item btn-sm nav-item-bg-gold-hover rounded">
-                                    <span class="nav-link boton-clientes"><i class="fas fa-users mr-2"></i>Clientes</span>
+                                <li class="nav-item btn-sm">
+                                    <span class="nav-link nav-item-bg-gold-hover rounded boton-clientes"><i class="fas fa-users mr-2"></i>Clientes</span>
                                 </li>
                                 <?php } ?>
-                                <li class="nav-item btn-sm nav-item-bg-gold-hover rounded">
-                                    <span class="nav-link boton-expedientes"><i class="fas fa-folder-open mr-2"></i>Expedientes</span>
+                                <li class="nav-item btn-sm">
+                                    <span class="nav-link nav-item-bg-gold-hover rounded boton-expedientes"><i class="fas fa-folder-open mr-2"></i>Expedientes</span>
                                 </li>
                                 <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) {?>
-                                <li class="nav-item btn-sm nav-item-bg-gold-hover rounded">
-                                    <span class="nav-link boton-agenda"><i class="fas fa-book mr-2"></i>Agenda</span>
+                                <li class="nav-item btn-sm">
+                                    <span class="nav-link nav-item-bg-gold-hover rounded boton-agenda"><i class="fas fa-book mr-2"></i>Agenda</span>
                                 </li>
-                                <li class="nav-item btn-sm nav-item-bg-gold-hover rounded">
-                                    <span class="nav-link boton-juntas"><i class="fas fa-handshake mr-2"></i>Juntas</span>
+                                <li class="nav-item btn-sm">
+                                    <span class="nav-link nav-item-bg-gold-hover rounded boton-juntas"><i class="fas fa-handshake mr-2"></i>Juntas</span>
                                 </li>
-                                <li class="nav-item btn-sm nav-item-bg-gold-hover rounded">
-                                    <span class="nav-link boton-usuarios"><i class="fas fa-user-friends mr-2"></i>Usuarios</span>
+                                <li class="nav-item btn-sm">
+                                    <span class="nav-link nav-item-bg-gold-hover rounded boton-usuarios"><i class="fas fa-user-friends mr-2"></i>Usuarios</span>
                                 </li>
                                 <?php } ?>
                             </ul>
@@ -78,7 +82,7 @@
                         <div class="d-none d-block d-lg-none">
                             <ul class="navbar-nav mr-auto px-3">
                                 <li class="nav-item btn-sm nav-item-bg-gold-hover rounded px-2">
-                                    <a class="nav-link" href="#"><i class="fas fa-address-card mr-2"></i>Contactanos</a>
+                                    <span class="nav-link boton-contactanos"><i class="fas fa-address-card mr-2"></i>Contactanos</span>
                                 </li>
                                 <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
                                 <li class="nav-item btn-sm nav-item-bg-gold-hover rounded px-2">

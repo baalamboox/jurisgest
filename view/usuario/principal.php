@@ -12,7 +12,7 @@
     <?php require_once "view/plantillas/encabezado.php"; ?>
 
     <!-- Aquí empieza la sección del contenido principal. -->
-    <div class="container d-flex flex-column flex-grow-1 py-5">
+    <div class="container d-flex flex-column flex-grow-1 py-5 z-index-1" id="contenedorSecciones">
 
     </div>
 

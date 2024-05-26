@@ -1,14 +1,15 @@
 $(document).ready(() => {
-    $("#contenedorSecciones").load("../../view/plantillas/secciones/inicio.php")
-    $("#botonInicio").click(() => {
-        $("#contenedorSecciones").load("../../view/plantillas/secciones/inicio.php")
+
+    // Se cargar por defecto la vista de inicio.
+    $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/inicio.php`);
+
+    // Se asigna un evento de clic al elemento botón de inicio para mostrar la vista correspondiente.
+    $(".boton-inicio").click(() => {
+        $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/inicio.php`);
+    });
+
+    // Se asigna un evento de clic al elemento botón de inicio para mostrar la vista correspondiente.
+    $(".boton-contactanos").click(() => {
+        $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/contactanos.php`);
     })
-    
-})
-$(document).ready(() => {
-    $("#contenedorSecciones").load("../../view/plantillas/secciones/contactanos.php")
-    $("#botonContactanos").click(() => {
-        $("#contenedorSecciones").load("../../view/plantillas/secciones/contactanos.php")
-    })
-    
-})
+});
