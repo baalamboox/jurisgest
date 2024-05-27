@@ -5,6 +5,7 @@
     --black-special: #0b0505;
     --gray-special: #191514;
     --gray-space: #252525;
+    --red-special: #712724;
     --black-special-alfa: rgba(11, 5, 5, 0.75);
     --gray-special-alfa: rgba(25, 21, 20, 0.75);
 }
@@ -49,6 +50,16 @@
 /* Regla para texto de color dorado obscuro. */
 .text-gold-dark {
     color: var(--gold-dark);
+}
+
+/* Regla para texto de color rojo especial. */
+.text-red-special {
+    color: var(--red-special) !important;
+}
+
+/* Regla para los texto con subrayado. */
+.text-underline {
+    text-decoration: underline !important;
 }
 
 /* Regla para borde inferior de color dorado claro. */
@@ -132,9 +143,9 @@
     color: var(--gold-light) !important;
 }
 
-/* Regla para mantener el contenedor de vistas siempre primero. */
+/* Regla para mantener el encabezado siempre primero. */
 .z-index-1 {
-    z-index: -1 !important;
+    z-index: 1 !important;
 }
 
 /* (Bootstrap 4) Sobre escritura del efecto hover de los botones de la barra de navegación. */
@@ -205,6 +216,12 @@ input[type="password"]:focus {
     border: solid 2px var(--gold-light);
 }
 
+/* Reglas para definir enfoque de color dorado para los Text Area. */
+textarea:focus {
+    box-shadow: none !important;
+    border: solid 2px var(--gold-light) !important;
+}
+
 /* (Bootstrap 4) Sobreescritura del efecto hover para el botón de inicio principal. */
 .navbar-brand:hover {
     background-color: white !important;
@@ -214,47 +231,4 @@ input[type="password"]:focus {
 .btn-gold:hover {
     color: white;
     background-color: var(--gold-dark);
-}
-
-/* Estos son los estilos de la parte de inicio. */
-
-/* Se utilizo para dejar un espacio entre la imagen y el siguiente texto. */
-.espacio_padding {
-    padding: 7% 0;
-}
-
-.espacio_padding2{
-    padding: 10px 0;
-}
-
-/*
-    * El elementos h3 dentro de un contenedor con la clase custom_heading-container de la siguiente manera:
-    * Transforma el texto a mayúsculas.
-    * Usa posicionamiento relativo para el elemento.
-*/
-.custom_heading-container h3 {
-    text-transform: uppercase;
-    position: relative;
-}
-
-/*
-    * Se añade una barra --gold-dark horizontal con bordes redondeados debajo de los elementos h3 dentro de un contenedor.
-    * Barra decorativa: Se añade una barra roja con bordes redondeados debajo de los h3, centrada horizontalmente.
-*/
-.custom_heading-container h3::before {
-    content: " ";
-    position: absolute;
-    bottom: -7px;
-    left: 50%;
-    width: 50px;
-    height: 7px;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    background-color:var(--gold-dark);
-    border-radius: 15px;
-}
-
-.letra {
-    font-size: 20px;
-    text-align: justify-center;
 }

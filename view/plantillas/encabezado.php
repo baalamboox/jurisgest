@@ -4,11 +4,11 @@
 ?>
 
 <!-- Aquí empieza el encabezado. -->
-<div class="animate__animated animate__slideInDown">
+<div class="animate__animated animate__slideInDown z-index-1">
     <div class="container-fluid bg-img-header">
 
         <!-- Aquí empieza la primera sección del encabezado (Logotipo de GCA). -->
-        <div class="row">
+        <div class="row d-none d-sm-block">
             <div class="col p-0">
                 <div class="jumbotron mb-0 rounded-0 p-4 bg-gray-special-blur">
                     <div class="d-flex justify-content-center">
