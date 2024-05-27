@@ -53,7 +53,7 @@
                         require_once "view/usuario/principal.php";
                         break;
                     default:
-                        echo "No se econtro vista";
+                        require_once "view/plantillas/error-404.php";
                         break;
                 }
             } else {
@@ -62,4 +62,4 @@
             }
         ?>
     </body>
-</html>
+</html>0
