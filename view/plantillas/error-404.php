@@ -1,6 +1,3 @@
-<?php 
-    session_start();
-?>
 <nav class="bg-gray-special pt-3 pb-3">
     <div class="container">
         <h3 class="text-gold-light">Gerardo Cuellar <span class="text-white">y Abogados</span></h3>
@@ -11,6 +8,6 @@
         <h1 class="display-1 pt-5 font-weight-bold">404</h1>
         <h1 class="display-4 pt-1 pb-3">Página no encontrada</h1>
         <h3 class="font-weight-light text-secondary">Es posible que la página que estás buscando no <br>exista.</h3>
-        <a href="<?php echo "/" . $_SESSION["ruta"]?>" class="btn btn-gold-light mt-3 pt-3 pb-3 pr-4 pl-4"><i class="fas fa-reply mr-2"></i>Volver a Inicio</a>
+        <a href="/" class="btn btn-gold-light mt-3 pt-3 pb-3 pr-4 pl-4"><i class="fas fa-reply mr-2"></i>Volver a Inicio</a>
     </div>
 </div>

@@ -12,6 +12,7 @@ RewriteEngine on
 # Se usa la variable vista_solicitada para almacenar la URL.
 RewriteRule ^([a-zA-Z0-9/_-]+)$ index.php?vista_solicitada=$1
 
+# Permite cargar todas las fuentes como Font Awesome en dispositivos móviles.
 <IfModule mod_headers.c>
     <FilesMatch "\.(eot|ttf|otf|woff|woff2)$">
         Header set Access-Control-Allow-Origin "*"
