@@ -10,26 +10,7 @@
 
         <!-- Se obtiene la vista solicitada y se muestra como título de la pestaña. -->
         <title>
-            <!-- <?php
-                if(isset($_GET["vista_solicitada"])) {
-                    switch ($_GET["vista_solicitada"]) {
-                        case "inicio-sesion":
-                            echo "Inicio de sesión";
-                            break;
-                        case "super-administrador":
-                            echo "Super administrador";
-                            break;
-                        case "administrador":
-                            echo "Administrador";
-                            break;
-                        case "usuario":
-                            echo "Usuario";
-                            break;
-                    }
-                } else {
-                    echo "Inicio de sesión";
-                }
-            ?> -->
+            dh
         </title>
         <?php
 
