@@ -1,6 +1,7 @@
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
+    ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="es-MX" dir="ltr">
@@ -60,7 +61,6 @@
                         break;
                 }
             } else {
-                ob_start();
                 header("location:inicio-sesion");
                 exit();
                 ob_end_flush();
