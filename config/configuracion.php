@@ -3,5 +3,5 @@
     define("NOMBRE_SERVIDOR", "JurisGest");
 
     // Creación de constante para la URL del servidor.
-    define("URL_SERVIDOR", "http://jurisgest.example.com");
+    define("URL_SERVIDOR", "https://jurisgest.com");
 ?>

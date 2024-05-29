@@ -3,9 +3,9 @@
 
         // Definir la credenciales de la base de datos.
         private $host = "localhost";
-        private $dbName = "jurisgest";
-        private $user = "root";
-        private $password = "";
+        private $dbName = "jurisgest_db";
+        private $user = "jurisgest_root";
+        private $password = "grhXZ7XJCjNVurB";
 
         // Variable para guardar el objeto conexión.
         private $conexion;

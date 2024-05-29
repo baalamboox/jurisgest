@@ -80,4 +80,4 @@ INSERT INTO tbl_per(nPer) VALUES ("usuario");
 
 -- Inserta super administrador por defecto
 
-INSERT INTO tbl_usr(usr, aco, nom, ape, perf, corr, fReg, fUlt) VALUES ("TzRooDAI", "7c222fb2927d828af22f592134e8932480637c0d", "gerardo", "cuellar", 1, "gerardo.cuellar@gmail.com", "2024-05-23", "2024-05-23");
+INSERT INTO tbl_usr(usr, aco, nom, ape, perf, corr, fReg, fUlt) VALUES ("TzRooDAI", "$2y$10$Y8IxxVE8QPvaWlGO7AGqbOoC0b4IfdRbbLHgfElI4NelXhQ/HWaWm", "gerardo", "cuellar", 1, "gerardo.cuellar@gmail.com", "2024-05-28", "2024-05-28");
