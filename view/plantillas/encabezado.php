@@ -1,8 +1,3 @@
-<?php
-    // Se usa el método siguiente para el uso de las variables globales de sesión.
-    session_start();
-?>
-
 <!-- Aquí empieza el encabezado. -->
 <div class="animate__animated animate__slideInDown z-index-1">
     <div class="container-fluid bg-img-header">

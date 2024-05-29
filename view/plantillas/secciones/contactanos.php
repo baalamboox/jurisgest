@@ -1,6 +1,6 @@
-<div class="row mb-5">
+<div class="row mb-5 shadow">
     <div class="col-md-6 d-flex align-self-stretch">
-        <div class="card w-100 border-0 shadow">
+        <div class="card w-100 border-0 p-4">
             <div class="card-header bg-white text-gold-light">
                 <i class="fas fa-envelope mr-2"></i>
                 Correo electrónico:
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="col-md-6 mt-4 mt-sm-4 mt-md-0 mt-lg-0">
-        <div class="card border-0 shadow">
+        <div class="card border-0 p-4">
             <div class="card-header bg-white text-gold-light">
             <i class="fas fa-phone-square-alt mr-2"></i>
                 Teléfonos:
@@ -69,7 +69,7 @@
 </div>
 <div class="row">
     <div class="col-md-6 d-flex align-self-stretch">
-        <div class="card w-100 border-0 shadow">
+        <div class="card w-100 border-0 p-4">
             <div class="card-header bg-white text-gold-light">
                 <i class="fas fa-map-marker-alt mr-2"></i>
                 Nos ubicamos en:
@@ -85,7 +85,7 @@
         </div>
     </div>
     <div class="col-md-6 mt-4 mt-sm-4 mt-md-0 mt-lg-0">
-        <div class="card border-0 shadow">
+        <div class="card border-0 p-4">
             <div class="card-header bg-white text-gold-light d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-comment-alt mr-2"></i>
@@ -98,19 +98,27 @@
             <div class="card-body">
                 <form class="p-3">
                     <div class="form-group">
-                        <label for="nombres"><i class="fas fa-user-alt mr-2 text-gold-dark"></i>Nombre(s)</label>
+                        <label for="nombres">
+                            <small><i class="fas fa-user-alt mr-2 text-gold-dark"></i>Nombre(s)</small>
+                        </label>
                         <input type="text" class="form-control form-control-sm" id="nombres" placeholder="Ingresa tu(s) nombre(s)" /> 
                     </div>
                     <div class="form-group">
-                        <label for="correoElectronico"><i class="fas fa-at mr-2 text-gold-dark"></i>Correo electrónico:</label>
+                        <label for="correoElectronico">
+                            <small><i class="fas fa-at mr-2 text-gold-dark"></i>Correo electrónico</small>
+                        </label>
                         <input type="email" class="form-control form-control-sm" id="correoElectronico" placeholder="Ingresa tu correo electrónico" />
                     </div>
                     <div class="form-group">
-                        <label for="tema"><i class="fas fa-quote-right mr-2 text-gold-dark"></i>Tema</label>
+                        <label for="tema">
+                            <small><i class="fas fa-quote-right mr-2 text-gold-dark"></i>Tema</small>
+                        </label>
                         <input type="text" class="form-control form-control-sm" id="tema" placeholder="Ingresa el tema" />
                     </div>
                     <div class="form-group">
-                        <label for="descripcion"><i class="fas fa-align-justify mr-2 text-gold-dark"></i>Descripción</label>
+                        <label for="descripcion">
+                            <small><i class="fas fa-align-justify mr-2 text-gold-dark"></i>Descripción</small>
+                        </label>
                         <textarea class="form-control" id="descripcion" placeholder="Ingresa tu descripción"></textarea>
                     </div>
                 </form>
