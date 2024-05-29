@@ -1,8 +1,8 @@
-<nav class="bg-gray-special pt-3 pb-3">
+<!-- <nav class="bg-gray-special pt-3 pb-3">
     <div class="container">
         <h3 class="text-gold-light">Gerardo Cuellar <span class="text-white">y Abogados</span></h3>
     </div>
-</nav>
+</nav> -->
 <div class="row mt-5">
     <div class="col text-center pt-5">
         <h1 class="display-1 pt-5 font-weight-bold">404</h1>
