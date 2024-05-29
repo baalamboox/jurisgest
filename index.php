@@ -1,13 +1,70 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php
-        header("location:/inicio-sesion");
-    ?>
-</body>
-</html>
+<html lang="es-MX" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Se obtiene la vista solicitada y se muestra como título de la pestaña. -->
+        <title>
+            <?php
+                if(isset($_GET["vista_solicitada"])) {
+                    switch ($_GET["vista_solicitada"]) {
+                        case "inicio-sesion":
+                            echo "Inicio de sesión";
+                            break;
+                        case "super-administrador":
+                            echo "Super administrador";
+                            break;
+                        case "administrador":
+                            echo "Administrador";
+                            break;
+                        case "usuario":
+                            echo "Usuario";
+                            break;
+                    }
+                } else {
+                    echo "Inicio de sesión";
+                }
+            ?>
+        </title>
+        <?php
+
+            // Se mandan a llamar las configuraciones necesarias así como dependencias.
+            require_once "config/configuracion.php";
+            require_once "config/dependencias.php";
+        ?>
+    </head>
+    <body>
+        <?php
+            // Verificación de las rutas amigables.
+            if(isset($_GET["vista_solicitada"])) {
+                switch ($_GET["vista_solicitada"]) {
+                    case "inicio-sesion":
+                        require_once "view/autenticacion/iniciar-sesion.php";
+                        break;
+                    case "super-administrador":
+                        require_once "view/super-administrador/principal.php";
+                        break;
+                    case "administrador":
+                        require_once "view/administrador/principal.php";
+                        break;
+                    case "usuario":
+                        require_once "view/usuario/principal.php";
+                        break;
+                    default:
+                        require_once "view/plantillas/error-404.php";
+                        break;
+                }
+            } else {
+                ob_start();
+                header("location:inicio-sesion");
+                exit();
+                ob_end_flush();
+            }
+        ?>
+    </body>
+</html>0
