@@ -1,7 +1,6 @@
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
-    
 ?>
 <!DOCTYPE html>
 <html lang="es-MX" dir="ltr">
@@ -11,7 +10,7 @@
 
         <!-- Se obtiene la vista solicitada y se muestra como título de la pestaña. -->
         <title>
-            <?php
+            <!-- <?php
                 if(isset($_GET["vista_solicitada"])) {
                     switch ($_GET["vista_solicitada"]) {
                         case "inicio-sesion":
@@ -30,7 +29,7 @@
                 } else {
                     echo "Inicio de sesión";
                 }
-            ?>
+            ?> -->
         </title>
         <?php
 
@@ -41,7 +40,6 @@
     </head>
     <body>
         <?php
-
             // Verificación de las rutas amigables.
             if(isset($_GET["vista_solicitada"])) {
                 switch ($_GET["vista_solicitada"]) {
@@ -62,7 +60,6 @@
                         break;
                 }
             } else {
-                session_start();
                 header("location:inicio-sesion");
                 exit();
             }
