@@ -31,11 +31,15 @@
             <div class="col-md-5 p-5 bg-black-special-blur">
                 <form class="text-white">
                     <div class="form-group">
-                        <label for="usuario"><i class="fas fa-user-circle mr-1"></i>Usuario</label>
+                        <label for="usuario">
+                            <small><i class="fas fa-user-circle mr-1"></i>Usuario</small>
+                        </label>
                         <input type="email" name="usuario" id="usuario" class="form-control form-control-sm gold-border-input" placeholder="Ingresa tu usuario" />
                     </div>
                     <div class="form-group">
-                        <label for="contra"><i class="fas fa-lock mr-1"></i>Contraseña</label>
+                        <label for="contra">
+                            <small><i class="fas fa-lock mr-1"></i>Contraseña</small>
+                        </label>
                         <input type="password" name="contra" id="contra" class="form-control form-control-sm gold-border-input" placeholder="Ingresa tu contraseña" />
                     </div>
                     <div class="form-group form-check">
