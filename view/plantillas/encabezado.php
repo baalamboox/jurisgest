@@ -126,6 +126,8 @@
     </div>
     <div class="w-100 hr-header"></div>
 </div>
+<!-- Implematabión de script para cambiar contraseña -->
+<script src="manager/autenticacion/cambiar-contra.js" defer="true"></script>
 
 <!-- Implementación del script para cerrar sesión. -->
 <script src="manager/autenticacion/cerrar-sesion.js" defer="true"></script>
