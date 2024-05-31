@@ -9,6 +9,19 @@
         </div>
     </div>
     <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-success mb-3" role="alert" id="creacionUsuario" hidden="true">
+                    <h4 class="alert-heading text-dark"><strong>¡Genial!</strong></h4>
+                    <p class="text-dark">Ha creado un nuevo usuario, favor de guardar bien las credenciales de autenticación siguientes en un lugar seguro.</p>
+                    <hr class="border-dark" />
+                    <p class="mb-0 text-dark d-flex justify-content-between">
+                        <span>Usuario: <strong id="usuarioCreado"></strong></span>
+                        <span>Contraseña: <strong id="contraCreada"></strong></span>
+                    </p>
+                </div>
+            </div>
+        </div>
         <form>
             <div class="row">
                 <div class="col-md-6">
@@ -43,19 +56,10 @@
                             <small><i class="fas fa-user-circle mr-2 text-gold-light"></i>Perfil</small>
                         </label>
                         <select class="form-control form-control-sm" id="perfil" />
-                            <option value="1">Super Administrador</option>
-                            <option value="2">Administrador</option>
-                            <option value="3">Usuario</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="estatus">
-                            <small><i class="fas fa-eye mr-2 text-gold-light"></i>Estatus</small>
-                        </label>
-                        <select class="form-control form-control-sm" id="estatus" />
-                            <option value="">Activo</option>
+                        <option value="0">Selecciona perfil</option>
+                        <option value="1">Super Administrador</option>
+                        <option value="2">Administrador</option>
+                        <option value="3">Usuario</option>
                         </select>
                     </div>
                 </div>
@@ -63,3 +67,6 @@
         </form>
     </div>
 </div>
+
+<!-- Implementación del scrip encargado de crear nuevos usuarios. -->
+<script src="manager/super-administrador/usuarios/crear.js" defer="true"></script>

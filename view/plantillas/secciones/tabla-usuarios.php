@@ -7,7 +7,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" id="contenedorTabla">
                 <thead>
                     <tr>
                         <th scope="col"><small>Usuario</small></th>
@@ -66,3 +66,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(() => {
+        const dataTable = new DataTable("#contenedorTabla", {
+            responsive: true,
+            language: {
+                url: `${window.location.origin}/public/lang/es-mx.json`
+            }
+        });
+    });
+</script>

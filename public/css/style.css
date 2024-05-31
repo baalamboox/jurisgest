@@ -8,6 +8,7 @@
     --red-special: #712724;
     --black-special-alfa: rgba(11, 5, 5, 0.75);
     --gray-special-alfa: rgba(25, 21, 20, 0.75);
+    --gold-light-alfa: rgba(213, 170, 109, 0.25);
 }
 
 /* Regla para botón dorado claro.*/
@@ -151,6 +152,12 @@
 /* Regla para definir el alto del contenedor del mapa de ubicación. */
 .container-map {
     height: 250px !important;
+}
+
+/* Regla para modificar el color de las alertas de éxito. */
+.alert-success {
+    background-color: var(--gold-light-alfa) !important;
+    border: solid 1px var(--gold-light);
 }
 
 /* (Bootstrap 4) Sobre escritura del efecto hover de los botones de la barra de navegación. */
