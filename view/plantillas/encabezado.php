@@ -45,9 +45,11 @@
                                 <li class="nav-item btn-sm">
                                     <span class="nav-link nav-item-bg-gold-hover rounded boton-agenda"><i class="fas fa-book mr-2"></i>Agenda</span>
                                 </li>
+                                <?php if($_SESSION["perfil"] == 1) { ?>
                                 <li class="nav-item btn-sm">
                                     <span class="nav-link nav-item-bg-gold-hover rounded boton-juntas"><i class="fas fa-handshake mr-2"></i>Juntas</span>
                                 </li>
+                                <?php } ?>
                                 <li class="nav-item btn-sm">
                                     <span class="nav-link nav-item-bg-gold-hover rounded boton-usuarios"><i class="fas fa-user-friends mr-2"></i>Usuarios</span>
                                 </li>
@@ -63,7 +65,9 @@
                                         <div class="d-flex justify-content-center">
                                             <span class="dropdown-header text-white font-weight-bolder text-center mb-3 w-50 border-bottom-gold-light p-0"><?=$_SESSION["usuario"]?></span>
                                         </div>
+                                        <?php if($_SESSION["perfil"] == 1) { ?>
                                         <span class="dropdown-item text-white btn-sm nav-item-bg-gold-hover rounded boton-cambiar-contra"><i class="fas fa-unlock mr-2"></i>Cambiar contraseña</span>
+                                        <?php } ?>
                                         <hr class="p-0 mt-2 mb-3 bg-black-special-alfa" />
                                         <div class="text-center mb-2">
                                             <span class="btn btn-gold-light btn-sm text-center text-black-special" onclick="cerrarSesion()"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión</span>
@@ -91,9 +95,11 @@
                                 <li class="nav-item btn-sm nav-item-bg-gold-hover rounded px-2">
                                     <span class="nav-link boton-agenda"><i class="fas fa-book mr-2"></i>Agenda</span>
                                 </li>
+                                <?php if($_SESSION["perfil"] == 1) { ?>
                                 <li class="nav-item btn-sm nav-item-bg-gold-hover rounded px-2">
                                     <span class="nav-link boton-juntas"><i class="fas fa-handshake mr-2"></i>Juntas</span>
                                 </li>
+                                <?php } ?>
                                 <li class="nav-item btn-sm nav-item-bg-gold-hover rounded px-2">
                                     <span class="nav-link boton-usuarios"><i class="fas fa-user-friends mr-2"></i>Usuarios</span>
                                 </li>
@@ -110,7 +116,9 @@
                                         <div class="d-flex justify-content-center">
                                             <span class="dropdown-header text-white font-weight-bolder text-center mb-3 w-50 border-bottom-gold-light p-0"><?=$_SESSION["usuario"]?></span>
                                         </div>
+                                        <?php if($_SESSION["perfil"] == 1) { ?>
                                         <span class="dropdown-item text-white btn-sm nav-item-bg-gold-hover rounded boton-cambiar-contra"><i class="fas fa-unlock mr-2"></i>Cambiar contraseña</span>
+                                        <?php } ?>
                                         <hr class="p-0 mt-2 mb-3 bg-black-special-alfa" />
                                         <div class="text-center mb-2">
                                             <span class="btn btn-gold-light btn-sm text-center text-black-special" onclick="cerrarSesion()"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión</span>

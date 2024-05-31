@@ -148,6 +148,11 @@
     z-index: 1 !important;
 }
 
+/* Regla para definir el alto del contenedor del mapa de ubicación. */
+.container-map {
+    height: 250px !important;
+}
+
 /* (Bootstrap 4) Sobre escritura del efecto hover de los botones de la barra de navegación. */
 .nav-link:hover {
     color: var(--black-special) !important;
