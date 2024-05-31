@@ -2,10 +2,18 @@
     class Conexion {
 
         // Definir la credenciales de la base de datos.
+
+        // Debes comentar las siguientes lìneas de código cuando se este desarrollando.
         private $host = "localhost";
         private $dbName = "jurisgest_db";
         private $user = "jurisgest_root";
         private $password = "grhXZ7XJCjNVurB";
+
+        // Debes descomentar las siguiente líneas cuando se este desarrollando.
+        // private $host = "localhost";
+        // private $dbName = "jurisgest";
+        // private $user = "root";
+        // private $password = "";
 
         // Variable para guardar el objeto conexión.
         private $conexion;
