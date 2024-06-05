@@ -43,7 +43,8 @@ CREATE TABLE tbl_cli (
     tel1 VARCHAR(255),
     tel2 VARCHAR(255),
     cel VARCHAR(255),
-    rReg DATE
+    corr VARCHAR (255),
+    fReg DATE
 );
 
 CREATE TABLE tbl_exp (

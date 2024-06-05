@@ -1,5 +1,4 @@
 $(document).ready(() => {
-    // $("#contenedorSeccionesUsuarios").load("");
     const botonListaUsuarios = $(".boton-lista-usuarios");
     const botonCrearUsuario = $(".boton-crear-usuario");
 

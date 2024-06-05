@@ -4,12 +4,15 @@ $(document).ready(() => {
     const campoApellidos = $("#apellidos");
     const listaPerfil = $("#perfil");
     const botonCrearUsuario = $("#crearUsuario");
+    const botonNuevoUsuario = $("#nuevoUsuario");
     const creacionUsuario = $("#creacionUsuario");
     const usuarioCreado = $("#usuarioCreado");
     const contraCreada = $("#contraCreada");
 
     const expresionCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const expresionNombresApellido = /^[a-zA-ZáéíóúÁÉÍÓÚñÑäëïöüÄËÏÖÜ\s]+$/;
+
+    botonNuevoUsuario[0].hidden = true;
 
     // Creación de un sweet alert para errores.
     const sweetAlertError = (mensaje) => {
@@ -26,6 +29,12 @@ $(document).ready(() => {
             }
         });
     }
+
+    botonNuevoUsuario.click(() => {
+        botonNuevoUsuario[0].hidden = true;
+        botonCrearUsuario[0].hidden = false;
+        $("#contenedorSeccionesUsuarios").load(`${window.location.origin}/view/super-administrador/usuarios/crear.php`);
+    });
 
     botonCrearUsuario.click(() => {
         if(campoCorreoElectronico.val() != "") {
@@ -47,6 +56,8 @@ $(document).ready(() => {
                                         success: respuesta => {
                                             const respuestaJSON = JSON.parse(respuesta);
                                             respuestaJSON.estado != 400 ? [
+                                                botonCrearUsuario[0].hidden = true,
+                                                botonNuevoUsuario[0].hidden = false,
                                                 creacionUsuario.attr("hidden", false),
                                                 usuarioCreado.text(respuestaJSON.datos.usuario),
                                                 contraCreada.text(respuestaJSON.datos.contra)

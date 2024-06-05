@@ -160,6 +160,11 @@
     border: solid 1px var(--gold-light);
 }
 
+/* Estilos para ajustar el contenido de los campo de tablas. */
+th, td {
+    white-space: nowrap !important;
+}
+
 /* (Bootstrap 4) Sobre escritura del efecto hover de los botones de la barra de navegación. */
 .nav-link:hover {
     color: var(--black-special) !important;

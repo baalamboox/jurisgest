@@ -6,6 +6,7 @@
         </div>
         <div>
             <span class="btn btn-sm btn-gold-light rounded" id="crearUsuario"><i class="fas fa-plus mr-2"></i>Crear</span>
+            <span class="btn btn-sm btn-gold-light rounded" id="nuevoUsuario"><i class="fas fa-user-plus mr-2"></i>Nuevo</span>
         </div>
     </div>
     <div class="card-body">
@@ -29,7 +30,7 @@
                         <label for="correoElectronico">
                             <small><i class="fas fa-at mr-2 text-gold-light"></i>Correo electrónico</small>
                         </label>
-                        <input type="email" class="form-control form-control-sm" id="correoElectronico" />
+                        <input type="email" class="form-control form-control-sm" id="correoElectronico" placeholder="Ingresa correo electrónico" />
                     </div>
                 </div>
             </div>
@@ -39,14 +40,14 @@
                         <label for="nombres">
                             <small><i class="fas fa-user mr-2 text-gold-light"></i>Nombre(s)</small>
                         </label>
-                        <input type="text" class="form-control form-control-sm" id="nombres" />
+                        <input type="text" class="form-control form-control-sm" id="nombres" placeholder="Ingresa nombre(s)" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="apellidos">
                         <small><i class="fas fa-user mr-2 text-gold-light"></i>Apellidos</small>
                     </label>
-                    <input type="text" class="form-control form-control-sm" id="apellidos" />
+                    <input type="text" class="form-control form-control-sm" id="apellidos" placeholder="Ingresa apellido(s)" />
                 </div>
             </div>
             <div class="row">
