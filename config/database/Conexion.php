@@ -4,7 +4,7 @@
         // Definir la credenciales de la base de datos.
 
         // Debes comentar las siguientes lìneas de código cuando se este desarrollando.
-        private $host = "localhost";
+        private $host = "50.6.138.109";
         private $dbName = "jurisges_db";
         private $user = "jurisges_root";
         private $password = "grhXZ7XJCjNVurB";
