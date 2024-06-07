@@ -19,6 +19,9 @@ $(document).ready(() => {
     });
 
     //  Se asigna el evento clic al elemento botón de juntas para mostrar su correspondiente 
+    $(".boton-juntas").click(() => {
+        $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/juntas.php`);
+    });
 
     // Se asigna un evento de clic al elemento botón de usuarios para mostrar la vista correspondiente.
     $(".boton-usuarios").click(() => {

@@ -34,7 +34,7 @@ $(document).ready(() => {
     const botonEditar = $(".boton-editar");
     const botonEliminar = $(".boton-eliminar");
 
-
+    
     const editarCliente = (event, idCliente) => {
         const columnasFila = event.currentTarget.parentNode.parentNode.cells;
         const contenedorSeccionesClientes = $("#contenedorSeccionesClientes");

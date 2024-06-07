@@ -7,25 +7,25 @@
     $obtenerConexion = $conexion->obtener();
 
     // Obteneción del ID del usuario a eliminar enviando por AJAX.
-    $idCliente = $_POST["idCliente"];
+    $idJuntas = $_POST["idJuntas"];
 
-    // Creación de consulta para eliminación de Juntas  
-    $sql = "DELETE FROM tbl_cli WHERE id=:idCliente";
+    // Creación de consulta para eliminación de clientes.
+    $sql = "DELETE FROM tbl_junt WHERE id=:idJuntas";
     $consulta = $obtenerConexion->prepare($sql);
-    $consulta->bindParam(":idCliente", $idCliente);
+    $consulta->bindParam(":idJuntas", $idJuntas);
 
     // Comparación del resultado de la consulta.
     if($consulta->execute()) {
         echo json_encode([
             "estado" => 200,
-            "mensaje" => "Cliente eliminado con éxito.",
+            "mensaje" => "Juntas eliminado con éxito.",
             "datos" => null,
             "errores" => null
         ]);
     } else {
         echo json_encode([
             "estado" => 400,
-            "mensaje" => "Error al eliminar el cliente.",
+            "mensaje" => "Error al eliminar la Junttas.",
             "datos" => null,
             "errores" => null
         ]);

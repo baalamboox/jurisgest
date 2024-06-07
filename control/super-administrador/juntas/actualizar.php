@@ -1,31 +1,31 @@
 <?php
-
     // Importación de la conexión a la base de datos.
     require_once "../../../config/database/Conexion.php";
 
+    // Obtener la conexión a la base de datos.
     $conexion = new Conexion();
     $obtenerConexion = $conexion->obtener();
 
-    // Obteneción del ID del usuario a eliminar enviando por AJAX.
-    $idCliente = $_POST["idCliente"];
+    // Obtención de los datos por método POST enviados desde AJAX.
+    $idJuntas = $_POST["idJuntas"];
+    $juntas = $_POST["juntas"];
 
-    // Creación de consulta para eliminación de Juntas  
-    $sql = "DELETE FROM tbl_cli WHERE id=:idCliente";
+    $sql = "UPDATE tbl_junt SET nJunt=:juntas WHERE id=:idJuntas";
     $consulta = $obtenerConexion->prepare($sql);
-    $consulta->bindParam(":idCliente", $idCliente);
-
-    // Comparación del resultado de la consulta.
+    $consulta->bindParam(":juntas", $juntas);
+    $consulta->bindParam(":idJuntas", $idJuntas);
+    
     if($consulta->execute()) {
         echo json_encode([
             "estado" => 200,
-            "mensaje" => "Cliente eliminado con éxito.",
+            "mensaje" => "Juntas actualizado con éxito.",
             "datos" => null,
             "errores" => null
         ]);
     } else {
         echo json_encode([
             "estado" => 400,
-            "mensaje" => "Error al eliminar el cliente.",
+            "mensaje" => "Error al actualizar la Junta.",
             "datos" => null,
             "errores" => null
         ]);
