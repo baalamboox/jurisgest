@@ -13,7 +13,7 @@
                             <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-juntas"><i class="fas fa-handshake mr-2 text-gold-dark"></i>Lista de Juntas</span>
                         </li>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-juntas"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear Junta</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-junta"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear Junta</span>
                         </li>
                     </ul>
                 </div>

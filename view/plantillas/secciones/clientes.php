@@ -10,11 +10,11 @@
                 <div class="card border-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-usuarios"><i class="fas fa-users mr-2 text-gold-dark"></i>Lista de clientes</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-clientes"><i class="fas fa-users mr-2 text-gold-dark"></i>Lista de clientes</span>
                         </li>
                         <?php if($_SESSION["perfil"] == 1) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-usuario"><i class="fas fa-user-plus mr-2 text-gold-dark"></i>Crear cliente</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-cliente"><i class="fas fa-user-plus mr-2 text-gold-dark"></i>Crear cliente</span>
                         </li>
                         <?php } ?>
                     </ul>
