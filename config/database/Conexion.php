@@ -5,8 +5,8 @@
 
         // Debes comentar las siguientes lìneas de código cuando se este desarrollando.
         private $host = "localhost";
-        private $dbName = "jurisgest_db";
-        private $user = "jurisgest_root";
+        private $dbName = "jurisges_db";
+        private $user = "jurisges_root";
         private $password = "grhXZ7XJCjNVurB";
 
         // Debes descomentar las siguiente líneas cuando se este desarrollando.
