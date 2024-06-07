@@ -1,4 +1,4 @@
--- Crear la base de datos
+# Crear la base de datos
 CREATE DATABASE jurisgest;
 
 -- Seleccionar la base de datos
@@ -43,7 +43,8 @@ CREATE TABLE tbl_cli (
     tel1 VARCHAR(255),
     tel2 VARCHAR(255),
     cel VARCHAR(255),
-    rReg DATE
+    corr VARCHAR (255),
+    fReg DATE
 );
 
 CREATE TABLE tbl_exp (
@@ -74,10 +75,9 @@ CREATE TABLE tbl_aud (
 );
 
 -- Inserta los tres roles de usuarios
-INSERT INTO tbl_per(nPer) VALUES ("super_administrador");
-INSERT INTO tbl_per(nPer) VALUES ("administrador");
-INSERT INTO tbl_per(nPer) VALUES ("usuario");
+INSERT INTO tbl_per(nPer) VALUES ("Super Administrador");
+INSERT INTO tbl_per(nPer) VALUES ("Administrador");
+INSERT INTO tbl_per(nPer) VALUES ("Usuario");
 
 -- Inserta super administrador por defecto
-
-INSERT INTO tbl_usr(usr, aco, nom, ape, perf, corr, fReg, fUlt) VALUES ("TzRooDAI", "$2y$10$Y8IxxVE8QPvaWlGO7AGqbOoC0b4IfdRbbLHgfElI4NelXhQ/HWaWm", "gerardo", "cuellar", 1, "gerardo.cuellar@gmail.com", "2024-05-28", "2024-05-28");
+INSERT INTO tbl_usr(usr, aco, nom, ape, perf, corr, fReg, fUlt) VALUES ("TzRooDAI", "$2y$10$s/vo0MvgY.qUhc5yw/x.1OMW55bTMqxbIHF7fj7vdXFDPof6rJ1Y2", "Gerardo", "Cuellar", 1, "gerardo@mail.com", NOW(), NOW());
