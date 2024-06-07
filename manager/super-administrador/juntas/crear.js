@@ -1,21 +1,21 @@
 $(document).ready(() => {
 
     // Sección de campos obtenidos por jQuery del formulario.
-    const campoJunta = $("#juntas");
+    const campoNombreJunta = $("#nombreJunta");
     // Sección de alertas.
     const creacionJunta = $("#creacionJunta");
 
     // Sección de botones obtenidos por JQuery.
     const botonCrearJunta = $("#crearJunta");
-    const botonNuevoJunta = $("#nuevoJunta");
+    const botonNuevaJunta = $("#nuevaJunta");
  
 
     // Sección de expresiones regulares para validación de campos.
 
-    const expresionNombrejunta = /^[a-zA-ZáéíóúÁÉÍÓÚñÑäëïöüÄËÏÖÜ\s]+$/;
+    const expresionNombreJunta = /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑäëïöüÄËÏÖÜ\s-]+$/;
     
     // Oculta el boton de crear nueva junta.
-    botonNuevoJunta[0].hidden = true;
+    botonNuevaJunta[0].hidden = true;
 
     // Creación de un sweet alert para errores.
     const sweetAlertError = (mensaje) => {
@@ -33,31 +33,31 @@ $(document).ready(() => {
         });
     }
 
-    // Asignación del evento clic al botón de nuevo junta para mostrar lo y recargar la vista correspondiente.
-        botonNuevoJunta.click(() => {
-        botonNuevoJunta[0].hidden = true;
+    // Asignación del evento clic al botón de nueva junta para mostrar lo y recargar la vista correspondiente.
+        botonNuevaJunta.click(() => {
+        botonNuevaJunta[0].hidden = true;
         botonCrearJunta[0].hidden = false;
         $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/super-administrador/juntas/crear.php`);
     });
 
-    // Asignación del evento clic al botón de crear cliente para su correspondiente acción.
+    // Asignación del evento clic al botón de crear junta para su correspondiente acción.
     botonCrearJunta.click(() => {
-        if(campoJunta.val() != "") {
-            if (expresionNombrejunta.test(campoJunta.val())) {
+        if(campoNombreJunta.val() != "") {
+            if (expresionNombreJunta.test(campoNombreJunta.val())) {
                 $.ajax({
                     type: "POST",
                     url: `${window.location.origin}/control/super-administrador/juntas/crear.php`,
                     data: {
-                        juntas: campoJunta.val()
+                        nombreJunta: campoNombreJunta.val()
                     },
                     success: respuesta => {
                         const respuestaJSON = JSON.parse(respuesta);
                         respuestaJSON.estado != 400 ? [
                             botonCrearJunta[0].hidden = true,
-                            botonNuevoJunta[0].hidden = false,
+                            botonNuevaJunta[0].hidden = false,
                             creacionJunta.attr("hidden", false)
                         ] : [
-                            sweetAlertError("Ocurrió un error al crear el cliente.")
+                            sweetAlertError("Ocurrió un error al crear la junta.")
                         ];
                     }
                 });
@@ -65,7 +65,7 @@ $(document).ready(() => {
                 sweetAlertError("Campo junta inválido.");
             }
         } else {
-            sweetAlertError("Campo inválido.");
+            sweetAlertError("Campo junta vacío.");
         }
     });
 });

@@ -10,12 +10,11 @@
                 <div class="card border-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-juntas"><i class="fas fa-users mr-2 text-gold-dark"></i>Lista de Junta</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-juntas"><i class="fas fa-handshake mr-2 text-gold-dark"></i>Lista de Juntas</span>
                         </li>
-                        <?php if($_SESSION["perfil"] == 1) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-juntas"><i class="fas fa-user-plus mr-2 text-gold-dark"></i>Crear Juntas</span>                       </li>
-                        <?php } ?>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-juntas"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear Junta</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -32,13 +31,11 @@
                 <div class="card border-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-juntas"><i class="fas fa-users mr-2 text-gold-dark"></i>Lista de Juntas</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-juntas"><i class="fas fa-handshake mr-2 text-gold-dark"></i>Lista de Juntas</span>
                         </li>
-                        <?php if($_SESSION["perfil"] == 1) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-junta"><i class="fas fa-user-plus mr-2 text-gold-dark"></i>Crear Junta</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-junta"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear Junta</span>
                         </li>
-                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -46,5 +43,5 @@
     </div>
 </div>
 
-<!-- Implementación de script para funcionalidades de los botones de las opciones del clientes. -->
-<script src="manager/plantillas/secciones/junta.js" defer="true"></script>
+<!-- Implementación de script para funcionalidades de los botones de las opciones de juntas. -->
+<script src="manager/plantillas/secciones/juntas.js" defer="true"></script>

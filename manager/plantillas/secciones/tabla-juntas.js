@@ -23,13 +23,13 @@ $(document).ready(() => {
     }
 
     // Sección de expresiones regulares para validación de campos.
-    const expresionNombreJunta = /^[a-zA-ZáéíóúÁÉÍÓÚñÑäëïöüÄËÏÖÜ\s]+$/;
+    const expresionNombreJunta = /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑäëïöüÄËÏÖÜ\s-]+$/;
 
     const botonEditarJunta = $(".boton-editar");
     const botonEliminarJunta = $(".boton-eliminar");
 
 
-    const editarJunta = (event, idJuntas) => {
+    const editarJunta = (event, idJunta) => {
         const columnasFilaJunta = event.currentTarget.parentNode.parentNode.cells;
         const contenedorSeccionesJuntas = $("#contenedorSeccionesJuntas");
         //Creacion del formulario actualizar de juntas
@@ -37,12 +37,12 @@ $(document).ready(() => {
             <div class="card shadow p-4 border-0">
                 <div class="card-header d-flex bg-white justify-content-between">
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-user mr-2 text-gold-light"></i>
-                        Actualización del Junta
+                        <i class="fas fa-handshake mr-2 text-gold-light"></i>
+                        Actualización de la Junta
                     </div>
                     <div>
-                        <span class="btn btn-sm btn-dark rounded" id="cancelarJuntas"><i class="fas fa-times mr-2"></i>Cancelar</span>
-                        <span class="btn btn-sm btn-gold-light rounded" id="guardarJuntas"><i class="fas fa-save mr-2"></i>Guardar</span>
+                        <span class="btn btn-sm btn-dark rounded" id="cancelarJunta"><i class="fas fa-times mr-2"></i>Cancelar</span>
+                        <span class="btn btn-sm btn-gold-light rounded" id="guardarJunta"><i class="fas fa-save mr-2"></i>Guardar</span>
                     </div>
                 </div>
                 <div class="card-body">
@@ -50,10 +50,10 @@ $(document).ready(() => {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="juntas">
-                                        <small><i class="fas fa-users mr-2 text-gold-light"></i>Juntas</small>
+                                    <label for="nombreJunta">
+                                        <small><i class="fas fa-location-arrow mr-2 text-gold-light"></i>Junta</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="juntas" placeholder="Actualiza una junta|" value="${columnasFilaJunta[0].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="nombreJunta" placeholder="Ingresa nombre de la junta" value="${columnasFilaJunta[0].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -65,24 +65,24 @@ $(document).ready(() => {
         `;
         contenedorSeccionesJuntas.html(formularioHTML);
 
-        const campoJuntas = $("#juntas");
+        const campoNombreJunta = $("#nombreJunta");
         //boton de guardar juntas o cancelar juntas traido de los id de formulario
-        const botonCancelarJunta = $("#cancelarJuntas");
-        const botonGuardarJunta = $("#guardarJuntas");
+        const botonCancelarJunta = $("#cancelarJunta");
+        const botonGuardarJunta = $("#guardarJunta");
         //Cancelacion de Juntas
         botonCancelarJunta.click(() => {
             $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/plantillas/secciones/tabla-juntas.php`);
         });
 
         botonGuardarJunta.click(() => {
-            if(campoJuntas.val() != "") {
-                if (expresionNombreJunta.test(campoJuntas.val())) {
+            if(campoNombreJunta.val() != "") {
+                if (expresionNombreJunta.test(campoNombreJunta.val())) {
                     $.ajax({
                         type: "POST",
                         url: `${window.location.origin}/control/super-administrador/juntas/actualizar.php`,
                         data: {
-                            idJuntas,
-                            juntas: campoJuntas.val()
+                            idJunta,
+                            nombreJunta: campoNombreJunta.val()
                         },
                         success: respuesta => {
                             const respuestaJSON = JSON.parse(respuesta);
@@ -96,20 +96,20 @@ $(document).ready(() => {
                                 }),
                                 $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/plantillas/secciones/tabla-juntas.php`)
                             ] : [
-                                sweetAlertError("Ocurrió un error al crear al junta.")
+                                sweetAlertError("Ocurrió un error al actualizar la junta.")
                             ];
                         }
                     });
                 } else {
-                    sweetAlertError("Campo de junta inválido.");
+                    sweetAlertError("Campo junta inválido.");
                 }
             } else {
-                sweetAlertError("Campo de junta  inválido.");
+                sweetAlertError("Campo junta  vacío.");
             }
         });
     }
 
-    const eliminarJunta = (idJuntas) => {
+    const eliminarJunta = (idJunta) => {
         Swal.fire({
             title: "¿Estas seguro?",
             text: "¡No se podrá revertir!",
@@ -125,15 +125,15 @@ $(document).ready(() => {
                     type: "POST",
                     url: `${window.location.origin}/control/super-administrador/juntas/eliminar.php`,
                     data: {
-                        idJuntas
+                        idJunta
                     },
                     success: (respuesta) => {
                         const respuestaJSON = JSON.parse(respuesta);
                         respuestaJSON.estado != 400 ? [
                             Swal.fire({
                                 title: "¡Genial!",
-                                text: "Eliminación de la junta correcto.",
-                                icon: "error",
+                                text: "Eliminación de la junta correcta.",
+                                icon: "success",
                                 background: 'rgb(25, 21, 20)',
                                 allowOutsideClick: false,
 
