@@ -51,30 +51,29 @@ $(document).ready(() => {
                         contra: contra.val()
                     },
                     success: respuesta => {
-                        // const respuestaJSON = JSON.parse(respuesta);
-                        // if(respuestaJSON.estado != 400) {
-                        //     switch (respuestaJSON.datos.perfil) {
-                        //         case 1:
-                        //             window.location.href = "super-administrador";
-                        //             break;
-                        //         case 2:
-                        //             window.location.href = "administrador";
-                        //             break;
-                        //         case 3:
-                        //             window.location.href = "usuario";
-                        //             break;
-                        //     }
-                        // } else {
-                        //     switch (respuestaJSON.errores.campo) {
-                        //         case "usuario":
-                        //             sweetAlertError(respuestaJSON.mensaje);
-                        //             break;
-                        //         case "contraseña":
-                        //             sweetAlertError(respuestaJSON.mensaje);
-                        //             break;
-                        //     }
-                        //
-                        console.log(respuesta);
+                        const respuestaJSON = JSON.parse(respuesta);
+                        if(respuestaJSON.estado != 400) {
+                            switch (respuestaJSON.datos.perfil) {
+                                case 1:
+                                    window.location.href = "super-administrador";
+                                    break;
+                                case 2:
+                                    window.location.href = "administrador";
+                                    break;
+                                case 3:
+                                    window.location.href = "usuario";
+                                    break;
+                            }
+                        } else {
+                            switch (respuestaJSON.errores.campo) {
+                                case "usuario":
+                                    sweetAlertError(respuestaJSON.mensaje);
+                                    break;
+                                case "contraseña":
+                                    sweetAlertError(respuestaJSON.mensaje);
+                                    break;
+                            }
+                        }
                     }
                 });
             } else {
