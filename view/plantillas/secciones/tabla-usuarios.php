@@ -24,6 +24,7 @@
             <table class="table table-striped" id="contenedorTabla">
                 <thead>
                     <tr>
+                        <th scope="col"><small>ID</small></th>
                         <th scope="col"><small>Usuario</small></th>
                         <th scope="col"><small>Pefil</small></th>
                         <th scope="col"><small>Nombre(s)</small></th>
@@ -42,6 +43,7 @@
                         foreach($consulta as $dato) {
                     ?>
                     <tr>
+                        <td><small><?=$dato["id"]?></small></td>
                         <td><small><?=$dato["usr"]?></small></td>
                         <td>
                             <small>

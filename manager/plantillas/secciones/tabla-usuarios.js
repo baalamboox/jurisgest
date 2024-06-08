@@ -76,17 +76,17 @@ $(document).ready(() => {
                 <div class="form-group">
                     <label for="correoElectronico">
                         <small><i class="fas fa-at mr-2 text-gold-light"></i>Correo electrónico</label></small>
-                    <input type="email" class="form-control form-control-sm" id="correoElectronico" placeholder="Ingresa correo electrónico" value="${celda[4].innerText}" />
+                    <input type="email" class="form-control form-control-sm" id="correoElectronico" placeholder="Ingresa correo electrónico" value="${celda[5].innerText}" />
                 </div>
                 <div class="form-group">
                     <label for="nombres">
                         <small><i class="fas fa-user mr-2 text-gold-light"></i>Nombre(s)</label></small>   
-                    <input type="text" class="form-control form-control-sm" id="nombres" placeholder="Ingresa nombre(s)" value="${celda[2].innerText}" />
+                    <input type="text" class="form-control form-control-sm" id="nombres" placeholder="Ingresa nombre(s)" value="${celda[3].innerText}" />
                 </div>
                 <div class="form-group">
                     <label for="apellidos">
                         <small><i class="fas fa-user mr-2 text-gold-light"></i>Apellido(s)</label></small>
-                    <input type="text" class="form-control form-control-sm" id="apellidos" placeholder="Ingresa apellido(s)" value="${celda[3].innerText}" />
+                    <input type="text" class="form-control form-control-sm" id="apellidos" placeholder="Ingresa apellido(s)" value="${celda[4].innerText}" />
                 </div>
                 ${
                     event.currentTarget.id[0] == "-" ? `
@@ -95,7 +95,7 @@ $(document).ready(() => {
                                 <small><i class="fas fa-user-circle mr-2 text-gold-light"></i>Perfil</small>
                             </label>
                             <select class="form-control form-control-sm" id="perfil" />
-                                ${listaPerfil(celda[1].innerText, true)}
+                                ${listaPerfil(celda[2].innerText, true)}
                             </select>
                         </div>
                     `: `
@@ -104,7 +104,7 @@ $(document).ready(() => {
                                 <small><i class="fas fa-user-circle mr-2 text-gold-light"></i>Perfil</small>
                             </label>
                             <select class="form-control form-control-sm perfil" id="perfil" />
-                                ${listaPerfil(celda[1].innerText, false)}
+                                ${listaPerfil(celda[2].innerText, false)}
                             </select>
                         </div>
                     `
@@ -220,6 +220,5 @@ $(document).ready(() => {
     }
 
     botonEditar.click((event) => editarUsuario(event, event.currentTarget.id));
-
     botonEliminar.click((event) => eliminarUsuario(event.currentTarget.id));
 });

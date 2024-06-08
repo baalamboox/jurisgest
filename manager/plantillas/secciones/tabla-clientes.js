@@ -40,12 +40,12 @@ $(document).ready(() => {
         const contenedorSeccionesClientes = $("#contenedorSeccionesClientes");
         const formularioHTML = `
             <div class="card shadow p-4 border-0">
-                <div class="card-header d-flex bg-white justify-content-between">
+                <div class="card-header d-flex flex-column flex-sm-row bg-white justify-content-between">
                     <div class="d-flex align-items-center">
                         <i class="fas fa-user mr-2 text-gold-light"></i>
                         Actualización del cliente
                     </div>
-                    <div>
+                    <div class="mx-auto mx-sm-0 mt-3 mt-sm-0 mb-2 mb-sm-0">
                         <span class="btn btn-sm btn-dark rounded" id="cancelarCliente"><i class="fas fa-times mr-2"></i>Cancelar</span>
                         <span class="btn btn-sm btn-gold-light rounded" id="guardarCliente"><i class="fas fa-save mr-2"></i>Guardar</span>
                     </div>
@@ -58,7 +58,7 @@ $(document).ready(() => {
                                     <label for="nombres">
                                         <small><i class="fas fa-user mr-2 text-gold-light"></i>Nombre(s)</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="nombres" placeholder="Ingresa nombre(s)" value="${columnasFila[0].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="nombres" placeholder="Ingresa nombre(s)" value="${columnasFila[1].innerText}" />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -66,7 +66,7 @@ $(document).ready(() => {
                                     <label for="apellidoPaterno">
                                         <small><i class="fas fa-user mr-2 text-gold-light"></i>Apellido paterno</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="apellidoPaterno" placeholder="Ingresa apellido paterno" value="${columnasFila[1].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="apellidoPaterno" placeholder="Ingresa apellido paterno" value="${columnasFila[2].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ $(document).ready(() => {
                                     <label for="apellidoMaterno">
                                         <small><i class="fas fa-user mr-2 text-gold-light"></i>Apellido materno</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="apellidoMaterno" placeholder="Ingresa apellido materno" value="${columnasFila[2].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="apellidoMaterno" placeholder="Ingresa apellido materno" value="${columnasFila[3].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ $(document).ready(() => {
                                     <label for="calle">
                                         <small><i class="fas fa-road mr-2 text-gold-light"></i>Calle</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="calle" placeholder="Ingresa calle" value="${columnasFila[3].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="calle" placeholder="Ingresa calle" value="${columnasFila[4].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ $(document).ready(() => {
                                     <label for="numeroExterior">
                                         <small><i class="fas fa-sort-numeric-up-alt mr-2 text-gold-light"></i>Número exterior</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="numeroExterior" placeholder="Ingresa número" value="${columnasFila[5].innerText == "S/N Ext." ? "" : columnasFila[5].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="numeroExterior" placeholder="Ingresa número" value="${columnasFila[6].innerText == "S/N Ext." ? "" : columnasFila[6].innerText}" />
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -104,7 +104,7 @@ $(document).ready(() => {
                                     <label for="numeroInterior">
                                         <small><i class="fas fa-sort-numeric-up-alt mr-2 text-gold-light"></i>Número interior</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="numeroInterior" placeholder="Ingresa número" value="${columnasFila[4].innerText == "S/N Int." ? "" : columnasFila[4].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="numeroInterior" placeholder="Ingresa número" value="${columnasFila[5].innerText == "S/N Int." ? "" : columnasFila[5].innerText}" />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -112,7 +112,7 @@ $(document).ready(() => {
                                     <label for="colonia">
                                         <small><i class="fas fa-city mr-2 text-gold-light"></i>Colonia</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="colonia" placeholder="Ingresa colonia" value="${columnasFila[6].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="colonia" placeholder="Ingresa colonia" value="${columnasFila[7].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ $(document).ready(() => {
                                     <label for="ciudad">
                                         <small><i class="fas fa-university mr-2 text-gold-light"></i>Ciudad</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="ciudad" placeholder="Ingresa ciudad" value="${columnasFila[8].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="ciudad" placeholder="Ingresa ciudad" value="${columnasFila[9].innerText}" />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -130,7 +130,7 @@ $(document).ready(() => {
                                     <label for="estado">
                                         <small><i class="fas fa-flag mr-2 text-gold-light"></i>Estado</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="estado" placeholder="Ingresa estado" value="${columnasFila[9].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="estado" placeholder="Ingresa estado" value="${columnasFila[10].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@ $(document).ready(() => {
                                     <label for="codigoPostal">
                                         <small><i class="fas fa-sort-numeric-up-alt mr-2 text-gold-light"></i>Código postal</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="codigoPostal" placeholder="Ingresa código postal" value="${columnasFila[7].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="codigoPostal" placeholder="Ingresa código postal" value="${columnasFila[8].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@ $(document).ready(() => {
                                     <label for="telefono1">
                                         <small><i class="fas fa-phone-alt mr-2 text-gold-light"></i>Teléfono 1</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="telefono1" placeholder="Ingresa teléfono" value="${columnasFila[10].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="telefono1" placeholder="Ingresa teléfono" value="${columnasFila[11].innerText}" />
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -158,7 +158,7 @@ $(document).ready(() => {
                                     <label for="telefono2">
                                         <small><i class="fas fa-phone-alt mr-2 text-gold-light"></i>Teléfono 2</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="telefono2" placeholder="Ingresa teléfono" value="${columnasFila[11].innerText == "S/N Tel." ? "" : columnasFila[11].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="telefono2" placeholder="Ingresa teléfono" value="${columnasFila[12].innerText == "S/N Tel." ? "" : columnasFila[12].innerText}" />
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -166,7 +166,7 @@ $(document).ready(() => {
                                     <label for="celular">
                                         <small><i class="fas fa-mobile mr-2 text-gold-light"></i>Celular</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="celular" placeholder="Ingresa celular" value="${columnasFila[12].innerText == "S/N Cel." ? "" : columnasFila[12].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="celular" placeholder="Ingresa celular" value="${columnasFila[13].innerText == "S/N Cel." ? "" : columnasFila[13].innerText}" />
                                 </div>
                             </div>
                         </div>
@@ -176,7 +176,7 @@ $(document).ready(() => {
                                     <label for="correoElectronico">
                                         <small><i class="fas fa-at mr-2 text-gold-light"></i>Correo electrónico</small>
                                     </label>
-                                    <input type="text" class="form-control form-control-sm" id="correoElectronico" placeholder="Ingresa correo electrónico" value="${columnasFila[13].innerText == "S/D Correo." ? "" : columnasFila[13].innerText}" />
+                                    <input type="text" class="form-control form-control-sm" id="correoElectronico" placeholder="Ingresa correo electrónico" value="${columnasFila[14].innerText == "S/D Correo." ? "" : columnasFila[14].innerText}" />
                                 </div>
                             </div>
                         </div>

@@ -49,29 +49,35 @@ CREATE TABLE tbl_cli (
 
 CREATE TABLE tbl_exp (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fInt DATE,
-    nom VARCHAR(255),
-    ape VARCHAR(255),
+    exp VARCHAR(255),
     emp VARCHAR(255),
-    jun INT,
-    varch VARCHAR(255),
     sta VARCHAR(255),
-    cliente_id INT,
-    FOREIGN KEY (jun) REFERENCES tbl_junt(id),
-    FOREIGN KEY (cliente_id) REFERENCES tbl_cli(id)
+    nota VARCHAR(255),
+    junt_id INT,
+    cli_id INT,
+    FOREIGN KEY (junt_id) REFERENCES tbl_junt(id),
+    FOREIGN KEY (cli_id) REFERENCES tbl_cli(id)
+);
+
+CREATE TABLE tbl_exp_usr (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usr_id INT,
+    exp_id INT,
+    FOREIGN KEY (usr_id) REFERENCES tbl_usr(id),
+    FOREIGN KEY (exp_id) REFERENCES tbl_exp(id)
 );
 
 CREATE TABLE tbl_aud (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fAud DATE,
-    jun INT,
-    cli INT,
-    exp INT,
+    junt_id INT,
+    cli_id INT,
+    exp_id INT,
     nAud VARCHAR(255),
     com VARCHAR(255),
-    FOREIGN KEY (jun) REFERENCES tbl_junt(id),
-    FOREIGN KEY (cli) REFERENCES tbl_cli(id),
-    FOREIGN KEY (exp) REFERENCES tbl_exp(id)
+    FOREIGN KEY (junt_id) REFERENCES tbl_junt(id),
+    FOREIGN KEY (cli_id) REFERENCES tbl_cli(id),
+    FOREIGN KEY (exp_id) REFERENCES tbl_exp(id)
 );
 
 -- Inserta los tres roles de usuarios

@@ -24,6 +24,7 @@
             <table class="table table-striped" id="contenedorTabla">
                 <thead>
                     <tr>
+                        <th scope="col"><small>ID</small></th>
                         <th scope="col"><small>Nombre</small></th>
                         <th scope="col" class="text-center"><small>Editar</small></th>
                         <th scope="col" class="text-center"><small>Eliminar</small></th>
@@ -33,6 +34,7 @@
                     <?php
                         foreach($consulta as $dato) {
                     ?>
+                        <td><small><?=$dato["id"]?></small></td>
                         <td><small><?=$dato["nJunt"]?></small></td>
                         <td class="text-center"><span class="btn btn-sm btn-gold-light boton-editar" id="<?=$dato["id"]?>"><i class="fas fa-pen"></i></span></td>
                         <td class="text-center"><span class="btn btn-sm btn-gold-light boton-eliminar" id="<?=$dato["id"]?>"><i class="fas fa-trash"></i></span></td>

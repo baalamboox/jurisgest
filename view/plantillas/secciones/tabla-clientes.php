@@ -24,6 +24,7 @@
             <table class="table table-striped" id="contenedorTabla">
                 <thead>
                     <tr>
+                        <th scope="col"><small>ID</small></th>
                         <th scope="col"><small>Nombre(s)</small></th>
                         <th scope="col"><small>Apellido paterno</small></th>
                         <th scope="col"><small>Apellido materno</small></th>
@@ -49,6 +50,7 @@
                     <?php
                         foreach($consulta as $dato) {
                     ?>
+                        <td><small><?=$dato["id"]?></small></td>
                         <td><small><?=$dato["nom"]?></small></td>
                         <td><small><?=$dato["aPat"]?></small></td>
                         <td><small><?=$dato["aMat"]?></small></td>
