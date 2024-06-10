@@ -19,7 +19,10 @@
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar permiso</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar Permiso</span>
+                        </li>
+                        <li class="list-group-item border-0 py-1">
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-permisos"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Lista de Permisos</span>
                         </li>
                         <?php } ?>
                     </ul>
@@ -47,7 +50,10 @@
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar permiso</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar Permiso</span>
+                        </li>
+                        <li class="list-group-item border-0 py-1">
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-permisos"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Lista de Permisos</span>
                         </li>
                         <?php } ?>
                     </ul>

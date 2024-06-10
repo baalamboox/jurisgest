@@ -58,13 +58,13 @@ $(document).ready(() => {
                     success: respuesta => {
                         const respuestaJSON = JSON.parse(respuesta);
                         console.log(respuestaJSON);
-                        // respuestaJSON.estado != 400 ? [
-                        //     botonDarPermiso[0].hidden = true,
-                        //     botonNuevoPermiso[0].hidden = false,
-                        //     permisoExpedienteExpediente.attr("hidden", false)
-                        // ] : [
-                        //     sweetAlertError("Ocurrió un error al dar permiso expediente-usuario.")
-                        // ];
+                        respuestaJSON.estado != 400 ? [
+                            botonDarPermiso[0].hidden = true,
+                            botonNuevoPermiso[0].hidden = false,
+                            permisoExpediente.attr("hidden", false)
+                        ] : [
+                            sweetAlertError(respuestaJSON.mensaje)
+                        ];
                     }
                 });
             } else {

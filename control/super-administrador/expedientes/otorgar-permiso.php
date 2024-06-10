@@ -13,24 +13,36 @@
     $consulta->bindParam(":usuarioID", $usuarioID);
     $consulta->bindParam(":expedienteID", $expedienteID);
 
-    $sqlVerificar = "SELECT exp_id from tbl_exp_usr WHERE user_id=:usuarioID";
+    $sqlVerificar = "SELECT exp_id from tbl_exp_usr WHERE usr_id=:usuarioID AND exp_id=:expedienteID";
     $consultaVerificar = $obtenerConexion->prepare($sqlVerificar);
     $consultaVerificar->bindParam(":usuarioID", $usuarioID);
+    $consultaVerificar->bindParam(":expedienteID", $expedienteID);
+    $consultaVerificar->execute();
 
-    // if($consulta->execute()) {
-    //     echo json_encode([
-    //         "estado" => 200,
-    //         "mensaje" => "Expediente-Usuario asignado con éxito.",
-    //         "datos" => null,
-    //         "errores" => null
-    //     ]);
-    // } else {
-    //     echo json_encode([
-    //         "estado" => 400,
-    //         "mensaje" => "Error al asignar el Expediente-Usuario.",
-    //         "datos" => null,
-    //         "errores" => null
-    //     ]);
-    // }
-    echo json_encode($consultaVerificar->execute());   
+    $resultadoVerificar = $consultaVerificar->fetch(PDO::FETCH_ASSOC);
+
+    if($resultadoVerificar) {
+        echo json_encode([
+            "estado" => 400,
+            "mensaje" => "Expediente-Usuario ya esta asignado.",
+            "datos" => null,
+            "errores" => null
+        ]);
+    } else {
+        if($consulta->execute()) {
+            echo json_encode([
+                "estado" => 200,
+                "mensaje" => "Expediente-Usuario asignado con éxito.",
+                "datos" => null,
+                "errores" => null
+            ]);
+        } else {
+            echo json_encode([
+                "estado" => 400,
+                "mensaje" => "Error al asignar el Expediente-Usuario.",
+                "datos" => null,
+                "errores" => null
+            ]);
+        } 
+    }
 ?>
