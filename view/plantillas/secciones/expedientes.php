@@ -17,6 +17,11 @@
                             <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-expediente"><i class="fas fa-folder-plus mr-2 text-gold-dark"></i>Crear Expediente</span>
                         </li>
                         <?php } ?>
+                        <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
+                        <li class="list-group-item border-0 py-1">
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar permiso</span>
+                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -38,6 +43,11 @@
                         <?php if($_SESSION["perfil"] == 1) { ?>
                         <li class="list-group-item border-0 py-1">
                             <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-expediente"><i class="fas fa-folder-plus mr-2 text-gold-dark"></i>Crear Expediente</span>
+                        </li>
+                        <?php } ?>
+                        <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
+                        <li class="list-group-item border-0 py-1">
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar permiso</span>
                         </li>
                         <?php } ?>
                     </ul>

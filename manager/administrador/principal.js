@@ -17,6 +17,10 @@ $(document).ready(() => {
     $(".boton-clientes").click(() => {
         $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/clientes.php`);
     });
+    // Se asigna un evento de clic al elemento botón de expedientes para mostrar la bista correspondiente.
+    $(".boton-expedientes").click(() => {
+        $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/expedientes.php`);
+    });
 
     // Se asigna un evento de clic al elemento botón de usuarios para mostrar la vista correspondiente.
     $(".boton-usuarios").click(() => {

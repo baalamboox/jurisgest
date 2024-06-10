@@ -3,6 +3,7 @@ $(document).ready(() => {
     // Sección de botones para sección de operaciones.
     const botonListaExpedientes = $(".boton-lista-expedientes");
     const botonCrearExpediente = $(".boton-crear-expediente");
+    const botonOtorgarPermiso = $(".boton-otorgar-permiso");
 
     // Cargar la tabla de expedientes por defecto cuando se cambia a la vista expedientes.
     $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-expedientes.php`);
@@ -15,4 +16,9 @@ $(document).ready(() => {
     botonCrearExpediente.click(() => {
         $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/super-administrador/expedientes/crear.php`);
     });
+
+    botonOtorgarPermiso.click(() => {
+        $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/super-administrador/expedientes/otorgar-permiso.php`);
+    });
+
 });
