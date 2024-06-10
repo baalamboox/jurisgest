@@ -1,6 +1,11 @@
 $(document).ready(() => {
+    const campoNombreExpediente = $("#nombreExpediente");
+    const campoNombreEmpresa = $("#nombreEmpresa");
     const listaClientes = $("#listaClientes");
     const listaJuntas = $("#listaJuntas");
+    const campoNota = $("#nota");
+    const listaEstado = $("#estado");
+    
 
     const creacionExpediente = $("#creacionExpediente");
 
@@ -45,30 +50,51 @@ $(document).ready(() => {
 
     // Asignación del evento clic al botón de crear expediente para su correspondiente acción.
     botonCrearExpediente.click(() => {
-        if(campoNombreJunta.val() != "") {
-            if (expresionNombreJunta.test(campoNombreJunta.val())) {
-                $.ajax({
-                    type: "POST",
-                    url: `${window.location.origin}/control/super-administrador/juntas/crear.php`,
-                    data: {
-                        nombreJunta: campoNombreJunta.val()
-                    },
-                    success: respuesta => {
-                        const respuestaJSON = JSON.parse(respuesta);
-                        respuestaJSON.estado != 400 ? [
-                            botonCrearJunta[0].hidden = true,
-                            botonNuevaJunta[0].hidden = false,
-                            creacionJunta.attr("hidden", false)
-                        ] : [
-                            sweetAlertError("Ocurrió un error al crear la junta.")
-                        ];
+        if(campoNombreExpediente.val() != "") {
+            if(campoNombreEmpresa.val() != "") {
+                if(listaClientes.val() != 0) {
+                    if(listaJuntas.val() != 0) {
+                        if(campoNota.val() != "") {
+                            if(listaEstado.val() != 0) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: `${window.location.origin}/control/super-administrador/expedientes/crear.php`,
+                                    data: {
+                                        nombreExpediente: campoNombreExpediente.val(),
+                                        nombreEmpresa: campoNombreEmpresa.val(),
+                                        cliente_id: listaClientes.val(),
+                                        junta_id: listaJuntas.val(),
+                                        nota: campoNota.val(),
+                                        estado: listaEstado.val()
+                                    },
+                                    success: respuesta => {
+                                        const respuestaJSON = JSON.parse(respuesta);
+                                        respuestaJSON.estado != 400 ? [
+                                            botonCrearExpediente[0].hidden = true,
+                                            botonNuevoExpediente[0].hidden = false,
+                                            creacionExpediente.attr("hidden", false)
+                                        ] : [
+                                            sweetAlertError("Ocurrió un error al crear el expediente.")
+                                        ];
+                                    }
+                                });
+                            } else {
+                                sweetAlertError("Campo estado vacío.");
+                            }
+                        } else {
+                            sweetAlertError("Campo nota vacío.");
+                        }
+                    } else {
+                        sweetAlertError("Campo junta vacío.");
                     }
-                });
+                } else {
+                    sweetAlertError("Campo cliente vacío.");
+                }
             } else {
-                sweetAlertError("Campo junta inválido.");
+                sweetAlertError("Campo empresa vacío.");
             }
         } else {
-            sweetAlertError("Campo junta vacío.");
+            sweetAlertError("Campo expediente vacío.");
         }
     });
 });
