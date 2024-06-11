@@ -4,6 +4,8 @@ $(document).ready(() => {
     const botonListaExpedientes = $(".boton-lista-expedientes");
     const botonCrearExpediente = $(".boton-crear-expediente");
     const botonOtorgarPermiso = $(".boton-otorgar-permiso");
+    const botonListaPermisos = $(".boton-lista-permisos");
+    const botonMiListaExpedientes = $(".boton-mi-lista-expedientes");
 
     // Cargar la tabla de expedientes por defecto cuando se cambia a la vista expedientes.
     $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-expedientes.php`);
@@ -19,6 +21,14 @@ $(document).ready(() => {
 
     botonOtorgarPermiso.click(() => {
         $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/super-administrador/expedientes/otorgar-permiso.php`);
+    });
+
+    botonListaPermisos.click(() => {
+        $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/super-administrador/expedientes/lista-permisos.php`);
+    });
+
+    botonMiListaExpedientes.click(() => {
+        $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-expedientes.php`);
     });
 
 });
