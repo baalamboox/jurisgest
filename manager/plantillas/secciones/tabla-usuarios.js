@@ -211,7 +211,18 @@ $(document).ready(() => {
 
                             }),
                             $("#contenedorSeccionesUsuarios").load(`${window.location.origin}/view/plantillas/secciones/tabla-usuarios.php`)
-                        ] : false;
+                        ] : Swal.fire({
+                                icon: 'error',
+                                title: '¡Ups!',
+                                html: `<small class="text-white">${respuestaJSON.mensaje}</small>`,
+                                background: 'rgb(25, 21, 20)',
+                                showConfirmButton: false,
+                                allowOutsideClick: false,
+                                showCloseButton: true,
+                                customClass: {
+                                    closeButton: "custom-button"
+                                }
+                        });
                     }
                 });
                 

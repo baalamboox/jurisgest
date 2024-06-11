@@ -15,17 +15,26 @@
     $consulta->bindParam(":idCliente", $idCliente);
 
     // Comparación del resultado de la consulta.
-    if($consulta->execute()) {
-        echo json_encode([
-            "estado" => 200,
-            "mensaje" => "Cliente eliminado con éxito.",
-            "datos" => null,
-            "errores" => null
-        ]);
-    } else {
+    try {
+        if($consulta->execute()) {
+            echo json_encode([
+                "estado" => 200,
+                "mensaje" => "Cliente eliminado con éxito.",
+                "datos" => null,
+                "errores" => null
+            ]);
+        } else {
+            echo json_encode([
+                "estado" => 400,
+                "mensaje" => "Error al eliminar el cliente.",
+                "datos" => null,
+                "errores" => null
+            ]);
+        }
+    } catch (PDOException $Exception) {
         echo json_encode([
             "estado" => 400,
-            "mensaje" => "Error al eliminar el cliente.",
+            "mensaje" => "Error al eliminar el cliente porque esta relacionado con otros datos.",
             "datos" => null,
             "errores" => null
         ]);

@@ -13,17 +13,26 @@
     $consulta = $obtenerConexion->prepare($sql);
     $consulta->bindParam(":idUsuario", $idUsuario);
 
-    if($consulta->execute()) {
-        echo json_encode([
-            "estado" => 200,
-            "mensaje" => "Usuario eliminado con éxito.",
-            "datos" => null,
-            "errores" => null
-        ]);
-    } else {
+    try {
+        if($consulta->execute()) {
+            echo json_encode([
+                "estado" => 200,
+                "mensaje" => "Usuario eliminado con éxito.",
+                "datos" => null,
+                "errores" => null
+            ]);
+        } else {
+            echo json_encode([
+                "estado" => 400,
+                "mensaje" => "Error al eliminar el usuario.",
+                "datos" => null,
+                "errores" => null
+            ]);
+        }
+    } catch (PDOException $Exception) {
         echo json_encode([
             "estado" => 400,
-            "mensaje" => "Error al eliminar el usuario.",
+            "mensaje" => "Error al eliminar el usuario porque esta relacionado con otros datos.",
             "datos" => null,
             "errores" => null
         ]);
