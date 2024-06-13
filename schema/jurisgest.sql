@@ -1,4 +1,4 @@
-# Crear la base de datos
+-- Crear la base de datos
 CREATE DATABASE jurisgest;
 
 -- Seleccionar la base de datos
@@ -69,14 +69,10 @@ CREATE TABLE tbl_exp_usr (
 
 CREATE TABLE tbl_aud (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fAud DATE,
-    junt_id INT,
-    cli_id INT,
+    fAud DATETIME,
     exp_id INT,
     nAud VARCHAR(255),
     com VARCHAR(255),
-    FOREIGN KEY (junt_id) REFERENCES tbl_junt(id),
-    FOREIGN KEY (cli_id) REFERENCES tbl_cli(id),
     FOREIGN KEY (exp_id) REFERENCES tbl_exp(id)
 );
 

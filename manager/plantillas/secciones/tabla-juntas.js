@@ -38,7 +38,7 @@ $(document).ready(() => {
                 <div class="card-header d-flex flex-column flex-sm-row bg-white justify-content-between">
                     <div class="d-flex align-items-center">
                         <i class="fas fa-handshake mr-2 text-gold-light"></i>
-                        Actualización de la Junta
+                        Actualización de la junta
                     </div>
                     <div class="mx-auto mx-sm-0 mt-3 mt-sm-0 mb-2 mb-sm-0">
                         <span class="btn btn-sm btn-dark rounded" id="cancelarJunta"><i class="fas fa-times mr-2"></i>Cancelar</span>

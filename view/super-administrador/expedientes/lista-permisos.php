@@ -13,8 +13,8 @@
 <div class="card shadow p-4 border-0">
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
-            <i class="fas fa-users mr-2 text-gold-dark"></i>
-            Listado de clientes
+            <i class="fas fa-tasks mr-2 text-gold-dark"></i>
+            Listado de permisos
         </div>
     </div>
     <div class="card-body">

@@ -30,10 +30,10 @@
                 <div class="card border-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-audiencias"><i class="fas fa-clipboard-list mr-2 text-gold-dark"></i>Lista de Audiencias</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-audiencias"><i class="fas fa-clipboard-list mr-2 text-gold-dark"></i>Lista de audiencias</span>
                         </li>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-audiencia"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear Audiencia</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-audiencia"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear audiencia</span>
                         </li>
                     </ul>
                 </div>

@@ -15,7 +15,6 @@
                 <div class="alert alert-success mb-3" role="alert" id="creacionCliente" hidden="true">
                     <h4 class="alert-heading text-dark"><strong>¡Genial!</strong></h4>
                     <p class="text-dark">Ha creado un nuevo cliente.</p>
-                    <hr class="border-dark" />
                 </div>
             </div>
         </div>
