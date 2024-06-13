@@ -11,7 +11,7 @@ $(document).ready(() => {
     botonListaClientes.click(() => {
         $("#contenedorSeccionesClientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-clientes.php`);
     });
-
+     //Se carga la vista de creación de Clientes en el contenedor correspondiente.
     botonCrearCliente.click(() => {
         $("#contenedorSeccionesClientes").load(`${window.location.origin}/view/super-administrador/clientes/crear.php`);
     });

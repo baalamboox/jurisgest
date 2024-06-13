@@ -1,4 +1,5 @@
 <div class="card shadow p-4 border-0">
+    <!-- Este código crea un encabezado de tarjeta con un título y dos botones para crear un nuevo cliente -->
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-user-plus mr-2 text-gold-light"></i>
@@ -9,8 +10,11 @@
             <span class="btn btn-sm btn-gold-light rounded" id="nuevoCliente"><i class="fas fa-user-plus mr-2"></i>Nuevo</span>
         </div>
     </div>
+    <!-- Formulario para la creación de un nuevo cliente, 
+    con campos para ingresar nombre, apellidos, dirección, teléfono y correo electrónico. -->
     <div class="card-body">
         <div class="row">
+            <!-- Alerta de éxito oculta para notificar la creación de un nuevocliente -->
             <div class="col">
                 <div class="alert alert-success mb-3" role="alert" id="creacionCliente" hidden="true">
                     <h4 class="alert-heading text-dark"><strong>¡Genial!</strong></h4>
@@ -21,6 +25,8 @@
         </div>
         <form>
             <div class="row">
+                <!-- Fornulario para ingresar nombre(s) y apellido paterno,
+                utilizando campos de entrada de texto -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="nombres">
@@ -39,6 +45,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Formulario para ingresar el apellido materno con un ícono de usuario, utilizando un campo de entrada de texto -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="apellidoMaterno">
@@ -49,6 +56,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- formulario para una columna completa para ingresar el nombre de una calle -->
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="calle">
@@ -59,6 +67,8 @@
                 </div>
             </div>
             <div class="row">
+                <!--Formulario  para ingresar el número exterior e interior
+                y la colonia, con íconos de números ascendentes y ciudad respectivamente -->
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="numeroExterior">
@@ -85,6 +95,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Formulario para ingresar la ciudad y el estado -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="ciudad">
@@ -103,6 +114,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Formulario para ingresar el código postal, con un ícono de números ascendentes -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="codigoPostal">
@@ -113,6 +125,7 @@
                 </div>
             </div>
             <div class="row">
+                <!--Formulario para ingresar teléfono 1, teléfono 2 y celular respectivamente -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="telefono1">
@@ -139,6 +152,7 @@
                 </div>
             </div>
             <div class="row">
+                <!--Formulario para ingresar correo electrónico  -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="correoElectronico">

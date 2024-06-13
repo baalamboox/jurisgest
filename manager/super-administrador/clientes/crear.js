@@ -61,6 +61,7 @@ $(document).ready(() => {
 
     // Asignación del evento clic al botón de crear cliente para su correspondiente acción.
     botonCrearCliente.click(() => {
+        //Validacion de los campos vacios 
         if(campoNombres.val() != "") {
             if(campoApellidoPaterno.val() != "") {
                 if(campoApellidoMaterno.val() != "") {
@@ -84,9 +85,13 @@ $(document).ready(() => {
                                                                                         if(expresionTelefonoCelular.test(campoTelefono2.val()) || campoTelefono2.val() == "") {
                                                                                             if(expresionTelefonoCelular.test(campoCelular.val()) || campoCelular.val() == "") {
                                                                                                 if(expresionCorreo.test(campoCorreoElectronico.val()) || campoCorreoElectronico.val() == "") {
+                                                                                                    //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                                                                                                     $.ajax({
+                                                                                                        //Especifica que la solicitud será de tipo POST.    
                                                                                                         type: "POST",
+                                                                                                        //Define la URL a la que se enviará la solicitud.                                               
                                                                                                         url: `${window.location.origin}/control/super-administrador/clientes/crear.php`,
+                                                                                                        //Define los datos que se enviarán con la solicitud en forma de objeto.                                               
                                                                                                         data: {
                                                                                                             nombres: campoNombres.val(),
                                                                                                             apellidoPaterno: campoApellidoPaterno.val(),
@@ -103,8 +108,11 @@ $(document).ready(() => {
                                                                                                             celular: campoCelular.val() == "" ? "S/N Cel." : campoCelular.val(),
                                                                                                             correoElectronico: campoCorreoElectronico.val() == "" ? "S/D Correo." : campoCorreoElectronico.val()
                                                                                                         },
+                                                                                                        //Define una función de callback que se ejecutará si la solicitud es exitosa. Esta función toma un parámetro respuesta.
                                                                                                         success: respuesta => {
+                                                                                                            //Convierte la respuesta de la solicitud (que se asume es una cadena JSON) en un objeto JavaScript.
                                                                                                             const respuestaJSON = JSON.parse(respuesta);
+                                                                                                            //Se muestra el mensaje de creado con SweetAlert 
                                                                                                             respuestaJSON.estado != 400 ? [
                                                                                                                 botonCrearCliente[0].hidden = true,
                                                                                                                 botonNuevoCliente[0].hidden = false,

@@ -1,4 +1,5 @@
 <div class="card shadow p-4 border-0">
+    <!-- Cabecera de tarjeta con ícono de apretón de manos y título "Creación de Junta", con botones para crear y agregar nueva junta -->
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-handshake mr-2 text-gold-light"></i>
@@ -11,6 +12,7 @@
     </div>
     <div class="card-body">
         <div class="row">
+            <!-- Alerta de éxito oculta para notificar la creación de una nueva junta -->
             <div class="col">
                 <div class="alert alert-success mb-3" role="alert" id="creacionJunta" hidden="true">
                     <h4 class="alert-heading text-dark"><strong>¡Genial!</strong></h4>
@@ -20,6 +22,7 @@
         </div>
         <form>
             <div class="row">
+                <!-- Formulario para ingresar el nombre de una junta  -->
                 <div class="col">
                     <div class="form-group">
                         <label for="juntas">

@@ -1,4 +1,5 @@
 <div class="row mb-5"> 
+    <!-- Se muestra un título centrado que dice "Bienvenido a JurisGest", con estilos de color específicos. -->
     <div class="col">
         <h1 class="text-center text-gold-light">
             <span class="text-dark">Bienvenido a</span> JurisGest
@@ -6,6 +7,7 @@
     </div>
 </div>
 <div class="row my-5">
+    <!-- Se muestra un título que dice "Gerardor Cuellar", con estilos de color específicos. -->
     <div class="col">
         <h3 class=" ">
             <span class="text-red-special">Gerardo Cuellar</span> y Abogados
@@ -13,6 +15,8 @@
     </div>
 </div>
 <div class="row mb-5">
+    <!-- Contiene una tarjeta con un ícono de verificación 
+        y un cuerpo de texto explicando las especializaciones legales del despacho -->
     <div class="col-md-4 d-flex align-self-stretch">
         <div class="card border-0 shadow p-4">
             <div class="text-center p-3 text-gold-light">
@@ -25,6 +29,8 @@
             </div>
         </div>
     </div>
+    <!-- Contiene una tarjeta con un ícono de apretón de manos y un cuerpo de texto explicando 
+    los servicios de asesoría y representación legal en asuntos laborales -->
     <div class="col-md-4">
         <div class="card border-0 shadow p-4">
             <div class="text-center p-3 text-gold-light">
@@ -52,6 +58,7 @@
     </div>
 </div>
 <div class="row my-5">
+    <!-- Se muestra un título específicos. -->
     <div class="col">
         <h4 class="text-left">
             Nos especializamos en asesorar a trabajadores en el pago de <span class="text-gold-light">indemnizaciones constitucionales y prestaciones de ley</span> tales como:
@@ -59,6 +66,7 @@
     </div>
 </div>
 <div class="row mb-5">
+    <!-- Fila con tres columnas, cada una conteniendo una tarjeta con una imagen y una lista de servicios legales relacionados con temas laborales  -->
     <div class="col-md-4">
         <div class="card border-0 shadow">
             <img src="public/images/inicio/img-0.webp" class="card-img-top">
@@ -148,6 +156,7 @@
     </div>
 </div>
 <div class="row mt-5">
+    <!-- Este código muestra un enlace centrado que lleva al sitio web  -->
     <div class="col text-center">
         <span><i class="fas fa-globe mr-2 text-gold-light"></i>Ir al sitio web <a href="http://www.gerardocuellaryabogados.com/" class="btn btn-gold-light">http://www.gerardocuellaryabogados.com</a></span>
     </div>

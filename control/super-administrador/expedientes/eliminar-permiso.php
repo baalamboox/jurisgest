@@ -11,7 +11,9 @@
 
     // Creación de consulta para eliminación de permisos de Expedientes. 
     $sql = "DELETE FROM tbl_exp_usr WHERE id=:idExpedienteUsuario";
+    // Prepara la consulta SQL usando una conexión previamente obtenida
     $consulta = $obtenerConexion->prepare($sql);
+    // Vincula los parámetros con las variables
     $consulta->bindParam(":idExpedienteUsuario", $idExpedienteUsuario);
 
     // Comparación del resultado de la consulta.

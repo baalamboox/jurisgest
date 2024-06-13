@@ -42,9 +42,11 @@ $(document).ready(() => {
     const botonEditarExpediente = $(".boton-editar");
     const botonEliminarExpediente = $(".boton-eliminar");
 
-
+    //Funcion de editar expedientes
     const editarExpediente = (event, idExpediente) => {
+        // Obtiene las celdas de la fila actual donde ocurrió el evento
         const celda = event.currentTarget.parentNode.parentNode.cells;
+        // Define el formulario HTML para la edición del expediente
         const formularioHTML = `
             <form class="text-left px-4 pt-5 text-white">
                 <div class="form-group">
@@ -64,6 +66,7 @@ $(document).ready(() => {
                 </div>
             </form>
         `;
+           // Muestra una alerta de SweetAlert con el formulario de edición
         Swal.fire({
             html: formularioHTML,
             showCloseButton: true,
@@ -77,22 +80,31 @@ $(document).ready(() => {
             },
             allowOutsideClick: false,
         }).then((resultado) => {
+            // Si el usuario confirma la acción
             if(resultado.isConfirmed) {
+                // Obtiene los valores de los campos del formulario
                 const campoNota = $("#nota");
                 const listaEstado = $("#listaEstado");
-
+                // Verifica que el campo de la nota no esté vacío
                 if(campoNota.val() != "") {
+                    // Envía una solicitud AJAX para actualizar el expediente
                     $.ajax({
+                        //Especifica que la solicitud será de tipo POST.
                         type: "POST",
+                        //Define la URL a la que se enviará la solicitud. 
                         url: `${window.location.origin}/control/super-administrador/expedientes/actualizar.php`,
+                        //Define los datos que se enviarán con la solicitud en forma de objeto.
                         data: {
                             idExpediente,
                             nota: campoNota.val(),
                             estado: listaEstado.val(),
                         },
                         success: respuesta => {
+                            // Analiza la respuesta JSON del servidor
                             const respuestaJSON = JSON.parse(respuesta);
+                            // Si la actualización fue exitosa
                             respuestaJSON.estado != 400 ? [
+                                // Muestra una alerta de éxito
                                 Swal.fire({
                                     title: "¡Genial!",
                                     text: "Actualización de expediente correcta.",
@@ -100,6 +112,7 @@ $(document).ready(() => {
                                     background: 'rgb(25, 21, 20)',
                                     allowOutsideClick: false,
                                 }),
+                                // Recarga la tabla de expedientes
                                 $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-expedientes.php`)
                             ] : Swal.fire({
                                 icon: 'error',
@@ -115,14 +128,16 @@ $(document).ready(() => {
                             });
                         }
                     });
+                    // Si el campo de la nota está vacío, muestra una alerta de error
                 } else {
                     sweetAlertError("Campo nota vacío.");
                 }
             }
         });
     }
-
+    //Función para manejar la eliminación de un expediente.
     const eliminarJunta = (idExpediente) => {
+        // Muestra un cuadro de diálogo de confirmación al usuario
         Swal.fire({
             title: "¿Estas seguro?",
             text: "¡No se podrá revertir!",
@@ -132,8 +147,10 @@ $(document).ready(() => {
             background: 'rgb(25, 21, 20)',
             allowOutsideClick: false,
         }).then((resultado) => {
+            // Si el usuario confirma la eliminación
             if (resultado.isConfirmed) {
                 console.log(resultado);
+                // Envía una solicitud AJAX para eliminar el expediente
                 $.ajax({
                     type: "POST",
                     url: `${window.location.origin}/control/super-administrador/expedientes/eliminar.php`,
@@ -141,8 +158,11 @@ $(document).ready(() => {
                         idExpediente
                     },
                     success: (respuesta) => {
+                        // Analiza la respuesta JSON del servidor
                         const respuestaJSON = JSON.parse(respuesta);
+                        // Si la eliminación fue exitosa
                         respuestaJSON.estado != 400 ? [
+                        // Muestra una alerta de éxito
                             Swal.fire({
                                 title: "¡Genial!",
                                 text: "Eliminación del expediente correcta.",
@@ -150,6 +170,7 @@ $(document).ready(() => {
                                 background: 'rgb(25, 21, 20)',
                                 allowOutsideClick: false,
                             }),
+                        // Recarga la tabla de expedientes
                             $("#contenedorSeccionesExpedientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-expedientes.php`)
                         ] : false;
                     }
@@ -158,7 +179,9 @@ $(document).ready(() => {
         });
     }
 
+    // Añade un manejador de evento de clic al botón de editar expediente
     botonEditarExpediente.click((event) => editarExpediente(event, event.currentTarget.id));
 
+    // Añade un manejador de evento de clic al botón de eliminar JUnta
     botonEliminarExpediente.click((event) => eliminarJunta(event.currentTarget.id));
 });

@@ -2,17 +2,20 @@
 
     require_once "../../../config/database/Conexion.php";
 
+    // Obtener la conexión a la base de datos.
     $conexion = new Conexion();
 
     $obtenerConexion = $conexion->obtener();
-
+    // Consulta para mostrar datos del usuario y expediente.
     $sqlUsuarios = "SELECT id, usr FROM tbl_usr WHERE perf=3";
     $sqlExpedientes = "SELECT id, exp FROM tbl_exp";
+    // Prepara la consulta SQL usando una conexión previamente obtenida     
     $consultaUsuarios = $obtenerConexion->query($sqlUsuarios);
     $consultaExpedientes = $obtenerConexion->query($sqlExpedientes);
 
 ?>
 <div class="card shadow p-4 border-0">
+    <!-- Cabecera de tarjeta con ícono de usuarios y texto "Otorgar permiso Expediente-Usuario", alineación horizontal y justificación entre los extremos -->
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-user-check mr-2 text-gold-light"></i>
@@ -24,6 +27,7 @@
         </div>
     </div>
     <div class="card-body">
+        <!-- Alerta de éxito oculta para notificar la asignación de permiso de solo lectura a un expediente. -->
         <div class="row">
             <div class="col">
                 <div class="alert alert-success mb-3" role="alert" id="permisoExpediente" hidden="true">
@@ -34,6 +38,7 @@
         </div>
         <form>
             <div class="row">
+                <!-- Selector de expedientes con lista dinámica poblada desde consulta PHP -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="listaExpedientes">
@@ -48,6 +53,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                    <!-- Selector de usuarios con lista dinámica poblada desde consulta PHP -->
                     <div class="form-group">
                         <label for="listaUsuarios">
                             <small><i class="fas fa-user mr-2 text-gold-light"></i>Usuario</small>

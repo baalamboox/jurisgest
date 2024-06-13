@@ -1,4 +1,5 @@
 <div class="row mb-5 shadow">
+    <!-- crea una tarjeta que muestra una dirección de correo electrónico como un enlace en un formato de alerta estilizado -->
     <div class="col-md-6 d-flex align-self-stretch">
         <div class="card w-100 border-0 p-4">
             <div class="card-header bg-white text-gold-light">
@@ -14,6 +15,8 @@
             </div>
         </div>
     </div>
+    <!-- crea una tarjeta que muestra varios números de teléfono como enlaces en un formato de alerta estilizado,
+    organizada en dos columnas dentro de un contenedor de media columna, con un encabezado que indica "Teléfonos". -->
     <div class="col-md-6 mt-4 mt-sm-4 mt-md-0 mt-lg-0">
         <div class="card border-0 p-4">
             <div class="card-header bg-white text-gold-light">
@@ -68,6 +71,7 @@
     </div>
 </div>
 <div class="row">
+    <!-- crea una tarjeta con un encabezado, un mapa de Google incrustado y un pie de página con la dirección física  -->
     <div class="col d-flex align-self-stretch">
         <div class="card w-100 border-0 p-4">
             <div class="card-header bg-white text-gold-light">

@@ -21,13 +21,13 @@ $(document).ready(() => {
             }
         }).then(() => editarUsuario(event, idUsuario));
     }
-
+     // Sección de expresiones regulares para validación de campos.
     const expresionCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const expresionNombresApellidos = /^[a-zA-ZáéíóúÁÉÍÓÚñÑäëïöüÄËÏÖÜ\s]+$/;
 
     const botonEditar = $(".boton-editar");
     const botonEliminar = $(".boton-eliminar");
-
+    //Función para manejo de perfil
     const listaPerfil = (perfil, usuarioActual) => {
         switch(perfil) {
             case "Super Administrador":
@@ -68,9 +68,11 @@ $(document).ready(() => {
                 `;
         }
     }
-
+    //Función para editar los datos de usuario
     const editarUsuario = (event, idUsuario) => {
+        // Obtiene las celda actual donde ocurrió el evento
         const celda = event.currentTarget.parentNode.parentNode.cells;
+        //Creacion del formulario actualizar de usuario    
         const formularioHTML = `
             <form class="text-left px-4 pt-5 text-white">
                 <div class="form-group">
@@ -129,16 +131,20 @@ $(document).ready(() => {
                 const campoNombres = $("#nombres");
                 const campoApellidos = $("#apellidos");
                 const listaPerfil = $("#perfil");
-
+                //Validacion de los campos vacios 
                 if(campoCorreoElectronico.val() != "") {
                     if(campoNombres.val() != "") {
                         if(campoApellidos.val() != "") {
                             if(expresionCorreo.test(campoCorreoElectronico.val())) {
                                 if(expresionNombresApellidos.test(campoNombres.val())) {
                                     if(expresionNombresApellidos.test(campoApellidos.val())) {
+                                         //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                                         $.ajax({
+                                            //Especifica que la solicitud será de tipo POST.    
                                             type: "POST",
+                                            //Define la URL a la que se enviará la solicitud.                                               
                                             url: `${window.location.origin}/control/super-administrador/usuarios/actualizar.php`,
+                                            //Define los datos que se enviarán con la solicitud en forma de objeto.                                               
                                             data: {
                                                 idUsuario: Math.abs(idUsuario),
                                                 correoElectronico: campoCorreoElectronico.val(),
@@ -146,9 +152,13 @@ $(document).ready(() => {
                                                 apellidos: campoApellidos.val(),
                                                 perfil: listaPerfil.val()
                                             },
+                                            //Define una función de callback que se ejecutará si la solicitud es exitosa. Esta función toma un parámetro respuesta.
                                             success: respuesta => {
+                                            //Convierte la respuesta de la solicitud (que se asume es una cadena JSON) en un objeto JavaScript.
                                                 const respuestaJSON = JSON.parse(respuesta);
+                                            //Se muestra el mensaje de actualizo con SweetAlert 
                                                 respuestaJSON.estado != 400 ? [
+                                                    // Muestra una alerta de éxito
                                                     Swal.fire({
                                                         title: "¡Genial!",
                                                         text: "Actualización de usuario correcta.",
@@ -156,6 +166,7 @@ $(document).ready(() => {
                                                         background: 'rgb(25, 21, 20)',
                                                         allowOutsideClick: false,
                                                     }),
+                                                 // Recarga la tabla de Usuario
                                                     $("#contenedorSeccionesUsuarios").load(`${window.location.origin}/view/plantillas/secciones/tabla-usuarios.php`)
                                                 ] : false;
                                             }
@@ -182,7 +193,9 @@ $(document).ready(() => {
         });
     }
 
+    // Función para eliminar un usuario
     const eliminarUsuario = (idUsuario) => {
+        // Mostrar un cuadro de diálogo de confirmación al usuario
         Swal.fire({
             title: "¿Estas seguro?",
             text: "¡No se podrá revertir!",
@@ -192,7 +205,9 @@ $(document).ready(() => {
             background: 'rgb(25, 21, 20)',
             allowOutsideClick: false,
         }).then((resultado) => {
+            // Si el usuario confirma la eliminación
             if (resultado.isConfirmed) {
+                // Enviar una solicitud AJAX para eliminar al usuario
                 $.ajax({
                     type: "POST",
                     url: `${window.location.origin}/control/super-administrador/usuarios/eliminar.php`,
@@ -200,8 +215,11 @@ $(document).ready(() => {
                         idUsuario
                     },
                     success: (respuesta) => {
+                        // Analiza la respuesta JSON del servidor
                         const respuestaJSON = JSON.parse(respuesta);
+                        // Si la eliminación fue exitosa
                         respuestaJSON.estado != 400 ? [
+                         // Muestra una alerta de éxito
                             Swal.fire({
                                 title: "¡Genial!",
                                 text: "Eliminación de usuario correcta.",
@@ -210,6 +228,7 @@ $(document).ready(() => {
                                 allowOutsideClick: false,
 
                             }),
+                            // Cargar la tabla actualizada de Usuario
                             $("#contenedorSeccionesUsuarios").load(`${window.location.origin}/view/plantillas/secciones/tabla-usuarios.php`)
                         ] : Swal.fire({
                                 icon: 'error',
@@ -229,7 +248,8 @@ $(document).ready(() => {
             }
         });
     }
-
+    // Añade un manejador de evento de clic al botón de editar usuario
     botonEditar.click((event) => editarUsuario(event, event.currentTarget.id));
+    // Añade un manejador de evento de clic al botón de eliminar usuario
     botonEliminar.click((event) => eliminarUsuario(event.currentTarget.id));
 });

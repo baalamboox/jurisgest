@@ -4,11 +4,12 @@
     require_once "../../../config/database/Conexion.php";
 
     session_start();
-
+    // Obtener la conexión a la base de datos.
     $conexion = new Conexion();
     $obtenerConexion = $conexion->obtener();
-
+    // Consulta para mostrar  datos del Expediente.
     $sql = "SELECT id, usr, nom, ape, perf, corr, fReg, fUlt FROM tbl_usr";
+        // Prepara la consulta SQL usando una conexión previamente obtenida    
     $consulta = $obtenerConexion->query($sql);
 
 ?>
@@ -20,8 +21,11 @@
         </div>
     </div>
     <div class="card-body">
+            <!-- Contenedor que hace la tabla dentro de él adaptable a diferentes tamaños de pantalla -->
         <div class="table-responsive">
+            <!-- Tabla con clases para estilo de rayas y un identificador único "contenedorTabla" -->
             <table class="table table-striped" id="contenedorTabla">
+            <!-- Cabecera de una tabla con columnas que incluyen información de los campos usuarios-->
                 <thead>
                     <tr>
                         <th scope="col"><small>ID</small></th>
@@ -38,6 +42,7 @@
                         <?php } ?>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla que itera sobre los datos de consulta, mostrando información del usuarios -->
                 <tbody>
                     <?php
                         foreach($consulta as $dato) {
@@ -84,4 +89,5 @@
     </div>
 </div>
 
+<!-- Inclusión de un archivo JavaScript ubicado en la ruta "manager/plantillas/secciones/tabla-clientes.js" con atributo defer para cargarlo de forma asíncrona después del análisis del documento -->
 <script src="manager/plantillas/secciones/tabla-usuarios.js" defer="true"></script>

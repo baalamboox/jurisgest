@@ -4,16 +4,20 @@
     require_once "../../../config/database/Conexion.php";
 
     session_start();
-
+    // Obtener la conexión a la base de datos.
     $conexion = new Conexion();
     $obtenerConexion = $conexion->obtener();
 
     if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) {
+        // Consulta para mostrar  datos del Expediente.
         $sql = "SELECT tbl_exp.id, tbl_exp.exp, tbl_exp.emp, CONCAT(tbl_cli.nom, \" \", tbl_cli.aPat) as cli, tbl_junt.nJunt as junt, tbl_exp.nota, tbl_exp.sta  FROM tbl_exp INNER JOIN tbl_cli ON tbl_exp.cli_id = tbl_cli.id INNER JOIN tbl_junt ON tbl_exp.junt_id = tbl_junt.id;";
+        // Prepara la consulta SQL usando una conexión previamente obtenida    
         $consulta = $obtenerConexion->query($sql);
 
 ?>
 <div class="card shadow p-4 border-0">
+    <!-- Cabecera de una tarjeta con un ícono de usuarios y el texto "Listado de expedientes", 
+    con contenido alineado horizontalmente y justificado entre los extremos -->
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-file-alt mr-2 text-gold-dark"></i>
@@ -21,8 +25,11 @@
         </div>
     </div>
     <div class="card-body">
+        <!-- Contenedor que hace la tabla dentro de él adaptable a diferentes tamaños de pantalla -->
         <div class="table-responsive">
+        <!-- Tabla con clases para estilo de rayas y un identificador único "contenedorTabla" -->
             <table class="table table-striped" id="contenedorTabla">
+                <!-- Cabecera de una tabla con columnas que incluyen información de los campos expediente-->
                 <thead>
                     <tr>
                         <th scope="col"><small>ID</small></th>
@@ -38,6 +45,7 @@
                         <?php } ?>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla que itera sobre los datos de consulta, mostrando información del expedientes -->
                 <tbody>
                     <?php
                         foreach($consulta as $dato) {
@@ -60,14 +68,19 @@
         </div>
     </div>
 </div>
+<!-- Inclusión de un archivo JavaScript ubicado en la ruta "manager/plantillas/secciones/tabla-clientes.js" con atributo defer para cargarlo de forma asíncrona después del análisis del documento -->
 
 <script src="manager/plantillas/secciones/tabla-expedientes.js" defer="true"></script>
 <?php } else {
     $usuarioID = $_SESSION["identificador"];
+    // Consulta para mostrar  datos del Expediente.
     $sql = "SELECT tbl_exp_usr.id, tbl_exp.exp, tbl_exp.emp, CONCAT(tbl_cli.nom, \" \", tbl_cli.aPat) as cli, tbl_junt.nJunt, tbl_exp.nota, tbl_exp.sta FROM tbl_exp_usr INNER JOIN tbl_exp ON tbl_exp_usr.exp_id=tbl_exp.id INNER JOIN tbl_junt ON tbl_exp.junt_id=tbl_junt.id INNER JOIN tbl_cli ON tbl_exp.cli_id=tbl_cli.id WHERE tbl_exp_usr.usr_id=$usuarioID";
+     // Prepara la consulta SQL usando una conexión previamente obtenida    
     $consulta = $obtenerConexion->query($sql);
 ?>
 <div class="card shadow p-4 border-0">
+    <!-- Cabecera de una tarjeta con un ícono de usuarios y el texto "Listado de expedientes", 
+    con contenido alineado horizontalmente y justificado entre los extremos -->
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-file-alt mr-2 text-gold-dark"></i>
@@ -75,8 +88,11 @@
         </div>
     </div>
     <div class="card-body">
+            <!-- Contenedor que hace la tabla dentro de él adaptable a diferentes tamaños de pantalla -->
         <div class="table-responsive">
+            <!-- Tabla con clases para estilo de rayas y un identificador único "contenedorTabla" -->
             <table class="table table-striped" id="contenedorTabla">
+                <!-- Cabecera de una tabla con columnas que incluyen información de los campos expediente-->
                 <thead>
                     <tr>
                         <th scope="col"><small>ID</small></th>
@@ -88,6 +104,7 @@
                         <th scope="col"><small>Estado</small></th>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla que itera sobre los datos de consulta, mostrando información del expedientes -->
                 <tbody>
                     <?php
                         foreach($consulta as $dato) {
@@ -106,6 +123,9 @@
         </div>
     </div>
 </div>
+<!-- Script que inicializa un DataTable en el elemento con ID "contenedorTabla",
+    configurando opciones de idioma en español,diseño de botones para imprimir
+    específicamente algunas columnas, y personalización del título para la impresión -->
 <script>
     dataTable = new DataTable("#contenedorTabla", {
         responsive: false,

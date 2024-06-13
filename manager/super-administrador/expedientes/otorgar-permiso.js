@@ -48,16 +48,23 @@ $(document).ready(() => {
     botonDarPermiso.click(() => {
         if(listaExpedientes.val() != 0) {
             if(listaUsuarios.val() != 0) {
+                //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                 $.ajax({
+                    //Especifica que la solicitud será de tipo POST.    
                     type: "POST",
+                    //Define la URL a la que se enviará la solicitud.    
                     url: `${window.location.origin}/control/super-administrador/expedientes/otorgar-permiso.php`,
+                     //Define los datos que se enviarán con la solicitud en forma de objeto.                                               
                     data: {
                         expedienteID: listaExpedientes.val(),
                         usuarioID: listaUsuarios.val(),
                     },
+                    // Analiza la respuesta JSON del servidor
                     success: respuesta => {
+                        //Convierte la respuesta de la solicitud (que se asume es una cadena JSON) en un objeto JavaScript.
                         const respuestaJSON = JSON.parse(respuesta);
                         console.log(respuestaJSON);
+                        //Se muestra el mensaje de permiso con SweetAlert 
                         respuestaJSON.estado != 400 ? [
                             botonDarPermiso[0].hidden = true,
                             botonNuevoPermiso[0].hidden = false,

@@ -1,5 +1,6 @@
 <?php  session_start(); ?>
 <div class="row">
+    <!-- Se genera un menú de operaciones con diferentes opciones según el perfil de usuario, mostrado solo en pantallas grandes, -->
     <div class="col-lg-4 d-none d-block d-lg-none">
         <div class="card border border pb-2 mb-4">
             <div class="card-header border-0 bg-white">
@@ -38,6 +39,7 @@
         </div>
     </div>
     <div class="col-lg-8" id="contenedorSeccionesExpedientes"></div>
+    <!--  crea una tarjeta de operaciones con diferentes opciones según el perfil de usuario, visible solo en pantallas grandes. -->
     <div class="col-md-4 d-none d-lg-block">
         <div class="card border border pb-2">
             <div class="card-header border-0 bg-white">

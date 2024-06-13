@@ -1,6 +1,8 @@
 $(document).ready(() => {
+    //Selecciona el botón que activará el cambio de contraseña.
     const botonCambiarContra = $(".boton-cambiar-contra");
-
+    /*Formulario HTML para cambiar la contraseña,con campos para la contraseña actual, 
+    nueva, confirmación de la nueva y una casilla para mostrar/ocultar contraseñas.*/
     const formularioHTML = `
         <form class="text-left px-4 pt-5 text-white">
             <div class="form-group">
@@ -21,7 +23,7 @@ $(document).ready(() => {
             </div>
         </form>
     `;
-
+    //Define una expresión regular que valida que la nueva contraseña tenga exactamente 10 caracteres.
     const expresionContra = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,:?(){}<>"])[A-Za-z\d!@#$%^&*.,:?(){}<>"]{10,10}$/;
 
     // Creación de un sweet alert para errores.
@@ -39,8 +41,9 @@ $(document).ready(() => {
             }
         });
     }
-
+    //Añade un manejador de eventos click al botón para cambiar la contraseña.
     botonCambiarContra.click(() => {
+    //Muestra el formulario en un modal SweetAlert y espera a que el usuario confirme o cancele.
         Swal.fire({
             html: formularioHTML,
             showCloseButton: true,
@@ -59,22 +62,34 @@ $(document).ready(() => {
                 const campoContraNueva = $("#contraNueva");
                 const campoConfirmarContra = $("#confirmarContra");
 
-                // Validación por niveles de los campos.
+                // Verifica que el campo de la contraseña actual no esté vacío.
                 if(campoContraActual.val() != "") {
+                    //Verifica que el campo de la nueva contraseña no esté vacío.
                     if(campoContraNueva.val() != "") {
+                        //Verifica que el campo para confirmar la nueva contraseña no esté vacío.
                         if(campoConfirmarContra.val() != "") {
+                            //Verifica que la nueva contraseña tenga exactamente 10 caracteres.
                             if(campoContraNueva.val().length >= 10 && campoContraNueva.val().length <= 10) {
+                                //Valida que la nueva contraseña cumpla con el patrón definido en expresionContra.
                                 if(expresionContra.test(campoContraNueva.val())) {
+                                    //Verifica que la nueva contraseña y su confirmación coincidan.
                                     if(campoContraNueva.val() == campoConfirmarContra.val()) {
+                                        //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                                         $.ajax({
+                                            //Especifica que la solicitud será de tipo POST.
                                             type: "POST",
+                                            //Define la URL a la que se enviará la solicitud. 
                                             url: `${window.location.origin}/control/autenticacion/cambiar-contra.php`,
+                                            //Define los datos que se enviarán con la solicitud en forma de objeto.
                                             data: {
                                                 contraActual: campoContraActual.val(),
                                                 contraNueva: campoContraNueva.val()
                                             },
                                             success: peticion => {
+                                                //Analiza la respuesta del servidor.
                                                 const peticionJSON = JSON.parse(peticion);
+                                                //Si la respuesta no indica un error (estado 400), muestra un SweetAlert de éxito. 
+                                                //Si hay un error, muestra un SweetAlert de error con el mensaje proporcionado por el servidor.
                                                 peticionJSON.estado != 400 ? [
                                                     Swal.fire({
                                                         position: "top-end",
@@ -113,9 +128,10 @@ $(document).ready(() => {
         const campoContraActual = $("#contraActual");
         const campoContraNueva = $("#contraNueva");
         const campoConfirmarContra = $("#confirmarContra");
+        //Obtiene referencias a la etiqueta y la casilla para mostrar/ocultar contraseñas.
         const etiquetaMostrarOcultar = $('label[for="mostrarOcultarContra"]');
         const mostrarOcultarContra = $("#mostrarOcultarContra");
-        
+        //Añade un manejador de eventos change a la casilla para alternar entre mostrar y ocultar las contraseñas.
         mostrarOcultarContra.change(() => {
             mostrarOcultarContra.is(":checked") ? [
                 campoContraActual.attr("type", "text"),

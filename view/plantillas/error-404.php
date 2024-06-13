@@ -1,11 +1,13 @@
-
+<!-- crea una barra de navegación fija que muestra "Gerardo Cuellar y Abogados".-->
 <nav class="navbar navbar-expand-lg navbar-light bg-black-special-blur static-top mb-5">
     <div class="col">
         <h3 class="text-gold-light text-center">Gerardo Cuellar <span class="text-white">y Abogados</span></h3>
     </div>
 </nav>
 
-
+    <!-- Un contenedor centrado con una jumbotron que muestra un mensaje de error "404 Página no encontrada" 
+    y un botón para regresar a la página de inicio.
+    -->
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col text-center">

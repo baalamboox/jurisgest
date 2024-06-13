@@ -1,5 +1,7 @@
 <?php  session_start(); ?>
 <div class="row">
+    <!-- Se genera una tarjeta visible solo en dispositivos grandes, 
+    que contiene una cabecera y botones para operaciones como "Lista de Juntas" y "Crear Junta" -->
     <div class="col-lg-4 d-none d-block d-lg-none">
         <div class="card border border pb-2 mb-4">
             <div class="card-header border-0 bg-white">
@@ -21,6 +23,8 @@
         </div>
     </div>
     <div class="col-lg-8" id="contenedorSeccionesJuntas"></div>
+    <!-- Columna con tarjeta oculta en dispositivos pequeños, visible solo en pantallas grandes, 
+    que contiene una cabecera y botones para "Lista de Juntas" y "Crear Junta" -->
     <div class="col-md-4 d-none d-lg-block">
         <div class="card border border pb-2">
             <div class="card-header border-0 bg-white">
