@@ -61,9 +61,9 @@
                                         <i class="fas fa-user-circle mr-2s"></i>
                                         (<?=$_SESSION["tipo"]?>)
                                     </span>
-                                    <div class="dropdown-menu dropdown-menu-right bg-black-special-blur p-3 dropdown-mt">
+                                    <div class="dropdown-menu dropdown-menu-right bg-black-special-blur p-2 dropdown-mt">
                                         <div class="d-flex justify-content-center">
-                                            <span class="dropdown-header text-white font-weight-bolder text-center mb-3 w-50 border-bottom-gold-light p-0"><?=$_SESSION["usuario"]?></span>
+                                            <span class="dropdown-header text-white font-weight-bolder text-center mb-3 w-100 border-bottom-gold-light p-0"><?=$_SESSION["usuario"]?></span>
                                         </div>
                                         <?php if($_SESSION["perfil"] == 1) { ?>
                                         <span class="dropdown-item text-white btn-sm nav-item-bg-gold-hover rounded boton-cambiar-contra"><i class="fas fa-unlock mr-2"></i>Cambiar contraseña</span>
