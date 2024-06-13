@@ -1,7 +1,4 @@
-<?php  session_start(); ?>
 <div class="row">
-    <!-- Se genera una tarjeta visible solo en dispositivos grandes, 
-    que contiene una cabecera y botones para operaciones como "Lista de Juntas" y "Crear Junta" -->
     <div class="col-lg-4 d-none d-block d-lg-none">
         <div class="card border border pb-2 mb-4">
             <div class="card-header border-0 bg-white">
@@ -12,19 +9,17 @@
                 <div class="card border-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-juntas"><i class="fas fa-handshake mr-2 text-gold-dark"></i>Lista de juntas</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-audiencias"><i class="fas fa-clipboard-list mr-2 text-gold-dark"></i>Lista de audiencias</span>
                         </li>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-junta"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear junta</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-audiencia"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear audiencia</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-8" id="contenedorSeccionesJuntas"></div>
-    <!-- Columna con tarjeta oculta en dispositivos pequeños, visible solo en pantallas grandes, 
-    que contiene una cabecera y botones para "Lista de Juntas" y "Crear Junta" -->
+    <div class="col-lg-8" id="contenedorSeccionesAudiencias"></div>
     <div class="col-md-4 d-none d-lg-block">
         <div class="card border border pb-2">
             <div class="card-header border-0 bg-white">
@@ -35,10 +30,10 @@
                 <div class="card border-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-juntas"><i class="fas fa-handshake mr-2 text-gold-dark"></i>Lista de juntas</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-audiencias"><i class="fas fa-clipboard-list mr-2 text-gold-dark"></i>Lista de audiencias</span>
                         </li>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-junta"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear junta</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-audiencia"><i class="fas fa-plus mr-2 text-gold-dark"></i>Crear audiencia</span>
                         </li>
                     </ul>
                 </div>
@@ -47,5 +42,5 @@
     </div>
 </div>
 
-<!-- Implementación de script para funcionalidades de los botones de las opciones de juntas. -->
-<script src="manager/plantillas/secciones/juntas.js" defer="true"></script>
+<!-- Implementación de script para funcionalidades de los botones de las opciones de agenda. -->
+<script src="manager/super-administrador/agenda/agenda.js" defer="true"></script>

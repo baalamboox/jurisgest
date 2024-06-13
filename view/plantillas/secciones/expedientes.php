@@ -12,25 +12,25 @@
                     <ul class="list-group list-group-flush">
                         <?php if($_SESSION["perfil"] == 3) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-mi-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Mi Lista de Expedientes</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-mi-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Mi lista de expedientes</span>
                         </li>
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Lista de Expedientes</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Lista de expedientes</span>
                         </li>
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-expediente"><i class="fas fa-folder-plus mr-2 text-gold-dark"></i>Crear Expediente</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-expediente"><i class="fas fa-folder-plus mr-2 text-gold-dark"></i>Crear expediente</span>
                         </li>
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar Permiso</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar permiso</span>
                         </li>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-permisos"><i class="fas fa-tasks mr-2 text-gold-dark"></i>Lista de Permisos</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-permisos"><i class="fas fa-tasks mr-2 text-gold-dark"></i>Lista de permisos</span>
                         </li>
                         <?php } ?>
                     </ul>
@@ -51,25 +51,25 @@
                     <ul class="list-group list-group-flush">
                         <?php if($_SESSION["perfil"] == 3) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-mi-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Mi Lista de Expedientes</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-mi-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Mi lista de expedientes</span>
                         </li>
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Lista de Expedientes</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-expedientes"><i class="fas fa-folder-open mr-2 text-gold-dark"></i>Lista de expedientes</span>
                         </li>
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-expediente"><i class="fas fa-folder-plus mr-2 text-gold-dark"></i>Crear Expediente</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-crear-expediente"><i class="fas fa-folder-plus mr-2 text-gold-dark"></i>Crear expediente</span>
                         </li>
                         <?php } ?>
                         <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) { ?>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar Permiso</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-otorgar-permiso"><i class="fas fa-user-check mr-2 text-gold-dark"></i>Otorgar permiso</span>
                         </li>
                         <li class="list-group-item border-0 py-1">
-                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-permisos"><i class="fas fa-tasks mr-2 text-gold-dark"></i>Lista de Permisos</span>
+                            <span class="btn btn-white btn-block btn-sm rounded text-left text-underline boton-lista-permisos"><i class="fas fa-tasks mr-2 text-gold-dark"></i>Lista de permisos</span>
                         </li>
                         <?php } ?>
                     </ul>

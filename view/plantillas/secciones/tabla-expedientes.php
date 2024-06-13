@@ -21,7 +21,7 @@
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-file-alt mr-2 text-gold-dark"></i>
-            Listado de Expedientes
+            Listado de expedientes
         </div>
     </div>
     <div class="card-body">

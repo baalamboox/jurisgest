@@ -42,10 +42,10 @@
                                     <span class="nav-link nav-item-bg-gold-hover rounded boton-expedientes"><i class="fas fa-folder-open mr-2"></i>Expedientes</span>
                                 </li>
                                 <?php if($_SESSION["perfil"] == 1 || $_SESSION["perfil"] == 2) {?>
+                                <?php if($_SESSION["perfil"] == 1) { ?>
                                 <li class="nav-item btn-sm">
                                     <span class="nav-link nav-item-bg-gold-hover rounded boton-agenda"><i class="fas fa-book mr-2"></i>Agenda</span>
-                                </li>
-                                <?php if($_SESSION["perfil"] == 1) { ?>
+                                </li>    
                                 <li class="nav-item btn-sm">
                                     <span class="nav-link nav-item-bg-gold-hover rounded boton-juntas"><i class="fas fa-handshake mr-2"></i>Juntas</span>
                                 </li>

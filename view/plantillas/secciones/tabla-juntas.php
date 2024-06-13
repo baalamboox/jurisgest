@@ -19,7 +19,7 @@
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-hadshake mr-2 text-gold-dark"></i>
-            Listado de Juntas
+            Listado de juntas
         </div>
     </div>
     <div class="card-body">

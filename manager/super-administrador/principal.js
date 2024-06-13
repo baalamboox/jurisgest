@@ -18,12 +18,17 @@ $(document).ready(() => {
         $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/clientes.php`);
     });
 
-    // Se asigna un evento de clic al elemento botón de expedientes para mostrar la bista correspondiente.
+    // Se asigna un evento de clic al elemento botón de expedientes para mostrar la vista correspondiente.
     $(".boton-expedientes").click(() => {
         $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/expedientes.php`);
     });
 
-    //  Se asigna el evento clic al elemento botón de juntas para mostrar su correspondiente 
+    // Se asigna un evento de clic al elemento botón de Agenda para mostrar la vista correspondiente.
+    $(".boton-agenda").click(() => {
+        $("#contenedorSecciones").load(`${window.location.origin}/view/super-administrador/agenda/agenda.php`);
+    });
+
+    //  Se asigna el evento clic al elemento botón de juntas para mostrar su correspondiente vista.
     $(".boton-juntas").click(() => {
         $("#contenedorSecciones").load(`${window.location.origin}/view/plantillas/secciones/juntas.php`);
     });
