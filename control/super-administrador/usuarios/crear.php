@@ -67,7 +67,9 @@
 
     // Consulta para crear el usuario.
     $sql = "INSERT INTO tbl_usr(usr, aco, nom, ape, perf, corr, fReg, fUlt) VALUES (:usuario, :contra, :nombres, :apellidos, :perfil, :correoElectronico, :fechaRegistro, :fechaUltima)";
+    // Prepara la consulta SQL usando una conexión previamente obtenida
     $consulta = $obtenerConexion->prepare($sql);
+    // Vincula los parámetros con las variables
     $consulta->bindParam(":usuario", $usuario);
     $consulta->bindParam(":contra", password_hash($contra, PASSWORD_DEFAULT));
     $consulta->bindParam(":nombres", $nombres);
@@ -79,6 +81,7 @@
     
     // Verifica si la consulta fue ejecutada con éxito.
     if($consulta->execute()) {
+        // Si la consulta fue exitosa, envía una respuesta JSON con estado 200 y un mensaje de éxito
         echo json_encode([
             "estado" => 200,
             "mensaje" => "Usuario creado con éxito.",
@@ -89,6 +92,7 @@
             "errores" => null
         ]);
     } else {
+        // Si hubo un error al ejecutar la consulta, envía una respuesta JSON con estado 400 y un mensaje de error
         echo json_encode([
             "estado" => 400,
             "mensaje" => "Error al crear usuario.",

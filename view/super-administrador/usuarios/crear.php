@@ -1,4 +1,5 @@
 <div class="card shadow p-4 border-0">
+    <!-- Cabecera de tarjeta con título "Creación de usuario" y botones para crear y agregar nuevo usuario -->
     <div class="card-header d-flex bg-white justify-content-between">
         <div class="d-flex align-items-center">
             <i class="fas fa-user-plus mr-2 text-gold-light"></i>
@@ -10,6 +11,7 @@
         </div>
     </div>
     <div class="card-body">
+        <!-- Notificación de éxito oculta para la creación de usuario con detalles de usuario y contraseña -->
         <div class="row">
             <div class="col">
                 <div class="alert alert-success mb-3" role="alert" id="creacionUsuario" hidden="true">
@@ -25,6 +27,7 @@
         </div>
         <form>
             <div class="row">
+                <!-- Formulario para ingresar correo electrónico con ícono -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="correoElectronico">
@@ -35,6 +38,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Formulario para ingresar nombres y apellidos con íconos -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="nombres">
@@ -51,6 +55,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Formulario para seleccionar el perfil de usuario con opciones predefinidas -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="perfil">

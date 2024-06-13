@@ -28,7 +28,9 @@
 
     // Consulta para crear el cliente.
     $sql = "INSERT INTO tbl_cli(nom, aPat, aMat, calle, nInt, `nExt`, col, cp, ciud, edo, tel1, tel2,cel,corr, fReg) VALUES (:nombres, :apellidoPaterno, :apellidoMaterno, :calle, :numeroInterior, :numeroExterior, :colonia, :codigoPostal, :ciudad, :estado, :telefono1, :telefono2, :celular, :correoElectronico, :fechaRegistro)";
+    // Prepara la consulta SQL usando una conexión previamente obtenida
     $consulta = $obtenerConexion->prepare($sql);
+    // Vincula los parámetros con las variables
     $consulta->bindParam(":nombres", $nombres);
     $consulta->bindParam(":apellidoPaterno", $apellidoPaterno);
     $consulta->bindParam(":apellidoMaterno", $apellidoMaterno);
@@ -47,6 +49,7 @@
     
     // Verifica si la consulta fue ejecutada con éxito.
     if($consulta->execute()) {
+        // Si la consulta fue exitosa, envía una respuesta JSON con estado 200 y un mensaje de éxito
         echo json_encode([
             "estado" => 200,
             "mensaje" => "Cliente creado con éxito.",
@@ -54,6 +57,7 @@
             "errores" => null
         ]);
     } else {
+        // Si hubo un error al ejecutar la consulta, envía una respuesta JSON con estado 400 y un mensaje de error
         echo json_encode([
             "estado" => 400,
             "mensaje" => "Error al crear cliente.",

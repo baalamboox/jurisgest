@@ -1,4 +1,5 @@
 $(document).ready(() => {
+    // Sección de campos obtenidos por jQuery del formulario.
     const campoCorreoElectronico = $("#correoElectronico");
     const campoNombres = $("#nombres");
     const campoApellidos = $("#apellidos");
@@ -9,6 +10,7 @@ $(document).ready(() => {
     const usuarioCreado = $("#usuarioCreado");
     const contraCreada = $("#contraCreada");
 
+    // Sección de expresiones regulares para validación de campos.
     const expresionCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const expresionNombresApellido = /^[a-zA-ZáéíóúÁÉÍÓÚñÑäëïöüÄËÏÖÜ\s]+$/;
 
@@ -29,14 +31,16 @@ $(document).ready(() => {
             }
         });
     }
-
+        // Agregar un manejador de evento de clic al botón de nuevo usuario
     botonNuevoUsuario.click(() => {
         botonNuevoUsuario[0].hidden = true;
         botonCrearUsuario[0].hidden = false;
+        // Cargar la tabla de clientes en el contenedor de secciones de clientes
         $("#contenedorSeccionesUsuarios").load(`${window.location.origin}/view/super-administrador/usuarios/crear.php`);
     });
-
+    // Agregar un manejador de evento de clic al botón de Guardar cliente
     botonCrearUsuario.click(() => {
+        //Validacion de los campos vacios 
         if(campoCorreoElectronico.val() != "") {
             if(campoNombres.val() != "") {
                 if(campoApellidos.val() != "") {
@@ -44,17 +48,24 @@ $(document).ready(() => {
                         if(expresionCorreo.test(campoCorreoElectronico.val())) {
                             if(expresionNombresApellido.test(campoNombres.val())) {
                                 if(expresionNombresApellido.test(campoApellidos.val())) {
+                                    //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                                     $.ajax({
+                                         //Especifica que la solicitud será de tipo POST.
                                         type: "POST",
+                                        //Define la URL a la que se enviará la solicitud. 
                                         url: `${window.location.origin}/control/super-administrador/usuarios/crear.php`,
+                                        //Define los datos que se enviarán con la solicitud en forma de objeto.
                                         data: {
                                             correoElectronico: campoCorreoElectronico.val(),
                                             nombres: campoNombres.val(),
                                             apellidos: campoApellidos.val(),
                                             perfil: listaPerfil.val()
                                         },
+                                        //Define una función de callback que se ejecutará si la solicitud es exitosa. Esta función toma un parámetro respuesta.
                                         success: respuesta => {
+                                            //Convierte la respuesta de la solicitud (que se asume es una cadena JSON) en un objeto JavaScript.
                                             const respuestaJSON = JSON.parse(respuesta);
+                                            //Se muestra el mensaje de crear con SweetAlert 
                                             respuestaJSON.estado != 400 ? [
                                                 botonCrearUsuario[0].hidden = true,
                                                 botonNuevoUsuario[0].hidden = false,

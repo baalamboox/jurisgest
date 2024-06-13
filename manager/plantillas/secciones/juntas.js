@@ -11,7 +11,7 @@ $(document).ready(() => {
     botonListaJuntas.click(() => {
         $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/plantillas/secciones/tabla-juntas.php`);
     });
-
+     //Se carga la vista de creación de juntas en el contenedor correspondiente.
     botonCrearJunta.click(() => {
         $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/super-administrador/juntas/crear.php`);
     });

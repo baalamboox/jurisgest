@@ -36,8 +36,11 @@ $(document).ready(() => {
 
     
     const editarCliente = (event, idCliente) => {
+        // Acceder a las celdas de la fila actual donde ocurrió el evento
         const columnasFila = event.currentTarget.parentNode.parentNode.cells;
+        // Acceder al contenedor de secciones de clientes mediante su ID
         const contenedorSeccionesClientes = $("#contenedorSeccionesClientes");
+        //Formulario HTML para actualizar los  datos  del cliente
         const formularioHTML = `
             <div class="card shadow p-4 border-0">
                 <div class="card-header d-flex flex-column flex-sm-row bg-white justify-content-between">
@@ -184,8 +187,10 @@ $(document).ready(() => {
                 </div>
             </div>
         `;
+        // Establecer el contenido HTML del contenedor de secciones de clientes con el formulario HTML proporcionado
         contenedorSeccionesClientes.html(formularioHTML);
 
+        // Obtener referencias a los campos del formulario por su ID
         const campoNombres = $("#nombres");
         const campoApellidoPaterno = $("#apellidoPaterno");
         const campoApellidoMaterno = $("#apellidoMaterno");
@@ -201,14 +206,19 @@ $(document).ready(() => {
         const campoCelular = $("#celular");
         const campoCorreoElectronico = $("#correoElectronico");
 
+
+        // Obtener referencias a los botones de cancelar y guardar el cliente por su ID
         const botonCancelarCliente = $("#cancelarCliente");
         const botonGuardarCliente = $("#guardarCliente");
 
+        // Agregar un manejador de evento de clic al botón de cancelar cliente
         botonCancelarCliente.click(() => {
+            // Cargar la tabla de clientes en el contenedor de secciones de clientes
             $("#contenedorSeccionesClientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-clientes.php`);
         });
-
+        // Agregar un manejador de evento de clic al botón de Guardar cliente
         botonGuardarCliente.click(() => {
+            //Validacion de los campos vacios 
             if(campoNombres.val() != "") {
                 if(campoApellidoPaterno.val() != "") {
                     if(campoApellidoMaterno.val() != "") {
@@ -232,9 +242,13 @@ $(document).ready(() => {
                                                                                             if(expresionTelefonoCelular.test(campoTelefono2.val()) || campoTelefono2.val() == "") {
                                                                                                 if(expresionTelefonoCelular.test(campoCelular.val()) || campoCelular.val() == "") {
                                                                                                     if(expresionCorreo.test(campoCorreoElectronico.val()) || campoCorreoElectronico.val() == "") {
+                                                                                                          //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                                                                                                         $.ajax({
+                                                                                                            //Especifica que la solicitud será de tipo POST.
                                                                                                             type: "POST",
+                                                                                                            //Define la URL a la que se enviará la solicitud. 
                                                                                                             url: `${window.location.origin}/control/super-administrador/clientes/actualizar.php`,
+                                                                                                            //Define los datos que se enviarán con la solicitud en forma de objeto.
                                                                                                             data: {
                                                                                                                 idCliente,
                                                                                                                 nombres: campoNombres.val(),
@@ -252,17 +266,21 @@ $(document).ready(() => {
                                                                                                                 celular: campoCelular.val() == "" ? "S/N Cel." : campoCelular.val(),
                                                                                                                 correoElectronico: campoCorreoElectronico.val() == "" ? "S/D Correo." : campoCorreoElectronico.val()
                                                                                                             },
+                                                                                                            //Define una función de callback que se ejecutará si la solicitud es exitosa. Esta función toma un parámetro respuesta.
                                                                                                             success: respuesta => {
+                                                                                                                //Convierte la respuesta de la solicitud (que se asume es una cadena JSON) en un objeto JavaScript.
                                                                                                                 const respuestaJSON = JSON.parse(respuesta);
+                                                                                                                //Se muestra el mensaje de actualizo con SweetAlert 
                                                                                                                 respuestaJSON.estado != 400 ? [
+                                                                                                                    // Muestra una alerta de éxito
                                                                                                                     Swal.fire({
                                                                                                                         title: "¡Genial!",
                                                                                                                         text: "Actualización del cliente correcta.",
                                                                                                                         icon: "success",
                                                                                                                         background: 'rgb(25, 21, 20)',
                                                                                                                         allowOutsideClick: false,
-                                                                                        
                                                                                                                     }),
+                                                                                                                     // Recarga la tabla de Cliente
                                                                                                                     $("#contenedorSeccionesClientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-clientes.php`)
                                                                                                                 ] : [
                                                                                                                     sweetAlertError("Ocurrió un error al crear el cliente.")
@@ -340,8 +358,9 @@ $(document).ready(() => {
             }
         });
     }
-
+    // Función para eliminar un cliente
     const eliminarCliente = (idCliente) => {
+        // Mostrar un cuadro de diálogo de confirmación al usuario
         Swal.fire({
             title: "¿Estas seguro?",
             text: "¡No se podrá revertir!",
@@ -351,7 +370,9 @@ $(document).ready(() => {
             background: 'rgb(25, 21, 20)',
             allowOutsideClick: false,
         }).then((resultado) => {
+         // Si el usuario confirma la eliminación
             if (resultado.isConfirmed) {
+                // Enviar una solicitud AJAX para eliminar el cliente
                 $.ajax({
                     type: "POST",
                     url: `${window.location.origin}/control/super-administrador/clientes/eliminar.php`,
@@ -359,16 +380,19 @@ $(document).ready(() => {
                         idCliente
                     },
                     success: (respuesta) => {
+                        // Analiza la respuesta JSON del servidor
                         const respuestaJSON = JSON.parse(respuesta);
+                        // Si la eliminación fue exitosa
                         respuestaJSON.estado != 400 ? [
+                            // Muestra una alerta de éxito
                             Swal.fire({
                                 title: "¡Genial!",
                                 text: "Eliminación del cliente correcto.",
                                 icon: "success",
                                 background: 'rgb(25, 21, 20)',
                                 allowOutsideClick: false,
-
                             }),
+                            // Cargar la tabla actualizada de clientes en el contenedor de secciones de clientes
                             $("#contenedorSeccionesClientes").load(`${window.location.origin}/view/plantillas/secciones/tabla-clientes.php`)
                         ] : Swal.fire({
                             icon: 'error',
@@ -387,8 +411,8 @@ $(document).ready(() => {
             }
         });
     }
-
+    // Añade un manejador de evento de clic al botón de editar cliente
     botonEditar.click((event) => editarCliente(event, event.currentTarget.id));
-
+    // Añade un manejador de evento de clic al botón de eliminar cliente
     botonEliminar.click((event) => eliminarCliente(event.currentTarget.id));
 });

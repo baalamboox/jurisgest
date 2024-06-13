@@ -50,15 +50,20 @@ $(document).ready(() => {
 
     // Asignación del evento clic al botón de crear expediente para su correspondiente acción.
     botonCrearExpediente.click(() => {
+        //Validacion de los campos vacios 
         if(campoNombreExpediente.val() != "") {
             if(campoNombreEmpresa.val() != "") {
                 if(listaClientes.val() != 0) {
                     if(listaJuntas.val() != 0) {
                         if(campoNota.val() != "") {
                             if(listaEstado.val() != 0) {
+                                //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                                 $.ajax({
+                                    //Especifica que la solicitud será de tipo POST.    
                                     type: "POST",
+                                    //Define la URL a la que se enviará la solicitud.                                               
                                     url: `${window.location.origin}/control/super-administrador/expedientes/crear.php`,
+                                    //Define los datos que se enviarán con la solicitud en forma de objeto.                                               
                                     data: {
                                         nombreExpediente: campoNombreExpediente.val(),
                                         nombreEmpresa: campoNombreEmpresa.val(),
@@ -67,8 +72,11 @@ $(document).ready(() => {
                                         nota: campoNota.val(),
                                         estado: listaEstado.val()
                                     },
+                                    //Define una función de callback que se ejecutará si la solicitud es exitosa. Esta función toma un parámetro respuesta.
                                     success: respuesta => {
+                                        //Convierte la respuesta de la solicitud (que se asume es una cadena JSON) en un objeto JavaScript.
                                         const respuestaJSON = JSON.parse(respuesta);
+                                        //Se muestra el mensaje de crear con SweetAlert 
                                         respuestaJSON.estado != 400 ? [
                                             botonCrearExpediente[0].hidden = true,
                                             botonNuevoExpediente[0].hidden = false,

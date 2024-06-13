@@ -42,16 +42,24 @@ $(document).ready(() => {
 
     // Asignación del evento clic al botón de crear junta para su correspondiente acción.
     botonCrearJunta.click(() => {
+        //Validacion de los campos vacios 
         if(campoNombreJunta.val() != "") {
             if (expresionNombreJunta.test(campoNombreJunta.val())) {
+                //Inicia una petición AJAX utilizando el método $.ajax de jQuery.
                 $.ajax({
+                     //Especifica que la solicitud será de tipo POST.    
                     type: "POST",
+                    //Define la URL a la que se enviará la solicitud.                                               
                     url: `${window.location.origin}/control/super-administrador/juntas/crear.php`,
+                    //Define los datos que se enviarán con la solicitud en forma de objeto.                                               
                     data: {
                         nombreJunta: campoNombreJunta.val()
                     },
+
                     success: respuesta => {
+                        //Convierte la respuesta de la solicitud (que se asume es una cadena JSON) en un objeto JavaScript.
                         const respuestaJSON = JSON.parse(respuesta);
+                        //Se muestra el mensaje de crear con SweetAlert 
                         respuestaJSON.estado != 400 ? [
                             botonCrearJunta[0].hidden = true,
                             botonNuevaJunta[0].hidden = false,

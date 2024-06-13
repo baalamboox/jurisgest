@@ -1,5 +1,7 @@
 <?php  session_start(); ?>
 <div class="row">
+    <!-- Columna que muestra una tarjeta en dispositivos grandes, oculta en dispositivos pequeños, 
+    con opciones de lista y creación de usuarios dependiendo del perfil de sesión -->
     <div class="col-lg-4 d-none d-block d-lg-none">
         <div class="card border border pb-2 mb-4">
             <div class="card-header border-0 bg-white">
@@ -23,6 +25,8 @@
         </div>
     </div>
     <div class="col-lg-8" id="contenedorSeccionesUsuarios"></div>
+    <!-- Columna con una tarjeta visible solo en dispositivos grandes, 
+    que contiene una cabecera y botones para "Lista de usuarios" y "Crear usuario" si el perfil de sesión es 1 -->
     <div class="col-md-4 d-none d-lg-block">
         <div class="card border border pb-2">
             <div class="card-header border-0 bg-white">
@@ -46,6 +50,5 @@
         </div>
     </div>
 </div>
-
 <!-- Implementación de script para funcionalidades de los botones de las opciones del usuarios. -->
 <script src="manager/plantillas/secciones/usuarios.js" defer="true"></script>

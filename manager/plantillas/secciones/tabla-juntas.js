@@ -28,8 +28,9 @@ $(document).ready(() => {
     const botonEditarJunta = $(".boton-editar");
     const botonEliminarJunta = $(".boton-eliminar");
 
-
+    //Función para editar datos de la junta
     const editarJunta = (event, idJunta) => {
+        // Obtiene las columnasfilaJUnta actual donde ocurrió el evento
         const columnasFilaJunta = event.currentTarget.parentNode.parentNode.cells;
         const contenedorSeccionesJuntas = $("#contenedorSeccionesJuntas");
         //Creacion del formulario actualizar de juntas
@@ -73,10 +74,12 @@ $(document).ready(() => {
         botonCancelarJunta.click(() => {
             $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/plantillas/secciones/tabla-juntas.php`);
         });
-
+        // Agregar un manejador de evento de clic al botón de Guardar JUntas
         botonGuardarJunta.click(() => {
+            //Validacion de los campos vacios 
             if(campoNombreJunta.val() != "") {
                 if (expresionNombreJunta.test(campoNombreJunta.val())) {
+                         // Envía una solicitud AJAX para actualizar el expediente
                     $.ajax({
                         type: "POST",
                         url: `${window.location.origin}/control/super-administrador/juntas/actualizar.php`,
@@ -85,8 +88,11 @@ $(document).ready(() => {
                             nombreJunta: campoNombreJunta.val()
                         },
                         success: respuesta => {
+                             // Analiza la respuesta JSON del servidor
                             const respuestaJSON = JSON.parse(respuesta);
+                            // Si la actualización fue exitosa
                             respuestaJSON.estado != 400 ? [
+                                 // Muestra una alerta de éxito
                                 Swal.fire({
                                     title: "¡Genial!",
                                     text: "Actualización de la junta correcta.",
@@ -94,6 +100,7 @@ $(document).ready(() => {
                                     background: 'rgb(25, 21, 20)',
                                     allowOutsideClick: false,
                                 }),
+                                // Recarga la tabla de JUnta
                                 $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/plantillas/secciones/tabla-juntas.php`)
                             ] : [
                                 sweetAlertError("Ocurrió un error al actualizar la junta.")
@@ -108,8 +115,9 @@ $(document).ready(() => {
             }
         });
     }
-
+    //Función para manejar la eliminación de un junta
     const eliminarJunta = (idJunta) => {
+        // Muestra un cuadro de diálogo de confirmación de junta
         Swal.fire({
             title: "¿Estas seguro?",
             text: "¡No se podrá revertir!",
@@ -119,8 +127,10 @@ $(document).ready(() => {
             background: 'rgb(25, 21, 20)',
             allowOutsideClick: false,
         }).then((resultado) => {
+             // Si el usuario confirma la eliminación
             if (resultado.isConfirmed) {
                 console.log(resultado);
+                // Envía una solicitud AJAX para eliminar junta
                 $.ajax({
                     type: "POST",
                     url: `${window.location.origin}/control/super-administrador/juntas/eliminar.php`,
@@ -128,8 +138,11 @@ $(document).ready(() => {
                         idJunta
                     },
                     success: (respuesta) => {
+                        // Analiza la respuesta JSON del servidor
                         const respuestaJSON = JSON.parse(respuesta);
+                        // Si la eliminación fue exitosa
                         respuestaJSON.estado != 400 ? [
+                        // Muestra una alerta de éxito
                             Swal.fire({
                                 title: "¡Genial!",
                                 text: "Eliminación de la junta correcta.",
@@ -137,6 +150,7 @@ $(document).ready(() => {
                                 background: 'rgb(25, 21, 20)',
                                 allowOutsideClick: false,
                             }),
+                            // Recarga la tabla de Junta
                             $("#contenedorSeccionesJuntas").load(`${window.location.origin}/view/plantillas/secciones/tabla-juntas.php`)
                         ] : Swal.fire({
                                 icon: 'error',
@@ -155,8 +169,8 @@ $(document).ready(() => {
             }
         });
     }
-
+    // Añade un manejador de evento de clic al botón de editar junta
     botonEditarJunta.click((event) => editarJunta(event, event.currentTarget.id));
-
+    // Añade un manejador de evento de clic al botón de eliminar JUnta
     botonEliminarJunta.click((event) => eliminarJunta(event.currentTarget.id));
 });
