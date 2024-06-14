@@ -75,7 +75,7 @@
 
 /* Reglas para el fondo del encabezado principal de página. */
 .bg-img-header {
-    background-image: url("../images/fondos/fondo-encabezado.jpg");
+    background-image: url("../images/fondos/fondo-encabezado.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
