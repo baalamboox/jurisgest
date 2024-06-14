@@ -1,4 +1,8 @@
 $(document).ready(() => {
+    // Obteneción de los elementos HTML relacionados con el filtro de fechas con JQuery.
+    const campoFechaInicial = $("#fechaInicial");
+    const campoFechaFinal = $("#fechaFinal");
+
     const dataTable = new DataTable("#contenedorTabla", {
         responsive: false,
         language: {
@@ -10,18 +14,35 @@ $(document).ready(() => {
                     {
                         extend: "print",
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6],
+                            columns: [1, 2, 3, 4, 5, 6],
                             
                         },
                         className: "btn-gold-light mb-1 btn-sm border-0",
                         text: '<i class="fas fa-print mr-2"></i>Imprimir',
-                        title: "Lista de Expedientes"
+                        title: "Lista de expedientes"
                         
                     },
                 ]
             }
         },
     });
+
+    // Filtrado personalizado para rango de fechas de los expedientes.
+    dataTable.columns(7).search.fixed('range', (data) => {
+        if (
+            (campoFechaInicial.val() == "" && campoFechaFinal.val() == "") ||
+            (campoFechaInicial.val() == "" && data <= campoFechaFinal.val()) ||
+            (campoFechaInicial.val() <= data && campoFechaFinal.val() == "") ||
+            (campoFechaInicial.val() <= data && data <= campoFechaFinal.val())
+        ) {
+            return true;
+        }
+        return false;
+    });
+
+    // Asiganación de lo eventos de cambio para lo selectores de fechas.
+    campoFechaInicial.change(() => dataTable.draw());
+    campoFechaFinal.change(() => dataTable.draw());
 
     // Creación de un sweet alert para errores.
     const sweetAlertError = (mensaje) => {

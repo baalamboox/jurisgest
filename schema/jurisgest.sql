@@ -55,6 +55,7 @@ CREATE TABLE tbl_exp (
     nota VARCHAR(255),
     junt_id INT,
     cli_id INT,
+    fReg DATE,
     FOREIGN KEY (junt_id) REFERENCES tbl_junt(id),
     FOREIGN KEY (cli_id) REFERENCES tbl_cli(id)
 );

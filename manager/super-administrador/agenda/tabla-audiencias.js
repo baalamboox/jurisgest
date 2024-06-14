@@ -5,23 +5,7 @@ $(document).ready(() => {
             url: `${window.location.origin}/public/lang/es-mx.json`
         }
     });
-
-    // Creación de un sweet alert para errores.
-    const sweetAlertError = (mensaje) => {
-        return Swal.fire({
-            icon: 'error',
-            title: '¡Ups!',
-            html: `<small class="text-white">${mensaje}</small>`,
-            background: 'rgb(25, 21, 20)',
-            showConfirmButton: false,
-            allowOutsideClick: false,
-            showCloseButton: true,
-            customClass: {
-                closeButton: "custom-button"
-            }
-        });
-    }
-
+    
     // Obtención del botón eliminar de cada registro.
     const botonEliminar = $(".boton-eliminar");
 

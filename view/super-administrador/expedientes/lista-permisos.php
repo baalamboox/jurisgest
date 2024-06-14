@@ -7,7 +7,7 @@
     $conexion = new Conexion();
     $obtenerConexion = $conexion->obtener();
     // Consulta para mostrar datos del lista de permiso.
-    $sql = "SELECT tbl_exp_usr.id, tbl_exp.exp, tbl_usr.usr FROM tbl_exp_usr INNER JOIN tbl_exp ON tbl_exp_usr.exp_id=tbl_exp.id INNER JOIN tbl_usr ON tbl_exp_usr.usr_id=tbl_usr.id";
+    $sql = "SELECT tbl_exp_usr.id, tbl_exp.exp, tbl_usr.usr, tbl_usr.nom, tbl_usr.ape FROM tbl_exp_usr INNER JOIN tbl_exp ON tbl_exp_usr.exp_id=tbl_exp.id INNER JOIN tbl_usr ON tbl_exp_usr.usr_id=tbl_usr.id";
     // Prepara la consulta SQL usando una conexión previamente obtenida       
     $consulta = $obtenerConexion->query($sql);
 
@@ -31,6 +31,8 @@
                         <th scope="col"><small>ID</small></th>
                         <th scope="col"><small>Expediente</small></th>
                         <th scope="col"><small>Usuario</small></th>
+                        <th scope="col"><small>Nombre(s)</small></th>
+                        <th scope="col"><small>Apellido(s)</small></th>
                         <th scope="col"><small>Eliminar permiso</small></th>
                     </tr>
                 </thead>
@@ -42,6 +44,8 @@
                         <td><small><?=$dato["id"]?></small></td>
                         <td><small><?=$dato["exp"]?></small></td>
                         <td><small><?=$dato["usr"]?></small></td>
+                        <td><small><?=$dato["nom"]?></small></td>
+                        <td><small><?=$dato["ape"]?></small></td>
                         <td class="text-center"><span class="btn btn-sm btn-gold-light boton-eliminar" id="<?=$dato["id"]?>"><i class="fas fa-trash"></i></span></td>
                     </tr>
                     <?php } ?>

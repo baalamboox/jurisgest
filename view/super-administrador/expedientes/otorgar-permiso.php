@@ -7,7 +7,7 @@
 
     $obtenerConexion = $conexion->obtener();
     // Consulta para mostrar datos del usuario y expediente.
-    $sqlUsuarios = "SELECT id, usr FROM tbl_usr WHERE perf=3";
+    $sqlUsuarios = "SELECT id, usr, CONCAT(nom, \" \", ape) as usuario FROM tbl_usr WHERE perf=3";
     $sqlExpedientes = "SELECT id, exp FROM tbl_exp";
     // Prepara la consulta SQL usando una conexión previamente obtenida     
     $consultaUsuarios = $obtenerConexion->query($sqlUsuarios);
@@ -61,7 +61,7 @@
                         <select class="form-control form-control-sm" id="listaUsuarios" data-placeholder="Selecciona usuario">
                             <option value="0">Selecciona usuario</option>
                             <?php foreach($consultaUsuarios as $datoUsuario) { ?>
-                            <option value="<?=$datoUsuario["id"]?>"><?php echo $datoUsuario["id"] . " - " . $datoUsuario["usr"]?></option>
+                            <option value="<?=$datoUsuario["id"]?>"><?php echo $datoUsuario["usr"] . " - " . $datoUsuario["usuario"]?></option>
                             <?php } ?>
                         </select>
                     </div>
